@@ -976,11 +976,13 @@ main {
     background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2070&auto=format&fit=crop');
 }
 
-.contact-container {
-    max-width: 1000px; margin: 80px auto; padding: 0 40px;
-    display: flex; align-items: center; justify-content: center;
-    gap: 80px;
-}
+/* --- FIX SPECIFIQUE PAGE CONTACT (Photo coupée) --- */
+    .contact-container {
+        /* On augmente la marge au-dessus du bloc contact sur mobile */
+        margin-top: 180px !important; 
+        /* On réduit un peu le padding sur les côtés pour gagner de la place */
+        padding: 0 20px;
+    }
 
 /* Partie Gauche : Avatar 3D */
 .contact-visual {
