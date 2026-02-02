@@ -1235,7 +1235,7 @@ main {
 }
 
 /* =========================================
-   RESPONSIVE NAVBAR & CORRECTIFS MOBILE
+   RESPONSIVE NAVBAR & CORRECTIFS MOBILE (FINAL)
    ========================================= */
 @media (max-width: 900px) {
     
@@ -1290,28 +1290,35 @@ main {
         border: 1px solid rgba(255,255,255,0.05);
     }
     
-    /* 2. CORRECTIFS DECALAGE CONTENU */
-    
-    /* Pour les pages classiques */
+    /* 2. CORRECTIFS DECALAGE CONTENU (Autres pages) */
     .page-header, .header-veille {
         padding-top: 220px !important; 
     }
     
-    /* Pour l'accueil */
     .hero-content {
         padding-top: 150px; 
     }
 
-    /* 3. FIX SPECIFIQUE CONTACT (L'image coupée) */
+    /* 3. FIX SPECIFIQUE CONTACT (Ajusté) */
     .contact-container {
-        flex-direction: column; /* On empile tout */
-        padding-top: 50px !important; /* Un peu d'espace */
+        flex-direction: column; /* Empile image puis texte */
+        
+        /* C'est LUI qui gère l'espace maintenant : Padding au lieu de Margin */
+        /* 160px devrait être suffisant pour passer sous la barre sans être trop bas */
+        padding-top: 160px !important; 
         margin-top: 0 !important;
+        padding-bottom: 40px;
     }
 
-    /* C'est ICI que ça se joue : on pousse l'image vers le bas */
     .contact-visual {
-        margin-top: 200px !important; /* Force brute pour descendre l'image */
+        /* On enlève la marge géante d'avant */
+        margin-top: 0 !important; 
         margin-bottom: 40px;
+        width: 100%; /* S'assure que l'image est centrée */
+    }
+    
+    /* Ajustement taille image sur mobile si besoin */
+    .avatar-3d, .avatar-glow {
+        width: 280px; height: 280px;
     }
 }
