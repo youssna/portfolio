@@ -1235,30 +1235,27 @@ main {
 }
 
 /* =========================================
-   RESPONSIVE NAVBAR (FIX SAFARI & IPHONE)
+   RESPONSIVE NAVBAR & CORRECTIFS MOBILE
    ========================================= */
 @media (max-width: 900px) {
     
-    /* 1. La barre principale */
+    /* 1. Navbar Mobile (Safari Friendly) */
     .navbar {
-        height: auto !important; /* Force la hauteur automatique */
+        height: auto !important;
         min-height: 80px;
-        padding: 10px 0; /* On retire le padding horizontal pour gagner de la place */
+        padding: 10px 0;
         background: rgba(15, 23, 42, 0.98);
-        flex-direction: column; /* Vertical */
+        flex-direction: column;
         align-items: flex-start;
     }
 
-    /* 2. Le conteneur interne */
     .nav-content {
         flex-direction: column;
         width: 100%;
         padding: 0;
-        margin: 0;
-        align-items: center; /* Centre le logo */
+        align-items: center;
     }
 
-    /* 3. Logo centré en haut */
     .logo {
         margin-bottom: 10px;
         width: 100%;
@@ -1266,44 +1263,25 @@ main {
         display: block;
     }
 
-    /* 4. LE MENU DÉFILANT (La partie corrigée pour Safari) */
     .nav-links {
         display: flex;
-        flex-direction: row; /* Horizontal */
-        
-        /* Force la largeur à 100% de l'écran */
+        flex-direction: row;
         width: 100%;
-        max-width: 100vw;
-        
-        /* Active le scroll */
-        overflow-x: scroll; /* 'scroll' est plus agressif que 'auto' pour Safari */
-        overflow-y: hidden;
-        
-        /* INDISPENSABLE POUR IPHONE (Fluidité) */
-        -webkit-overflow-scrolling: touch; 
-        
-        /* Espacement */
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
         gap: 15px;
-        padding: 10px 20px 20px 20px; /* Padding bas pour laisser place au doigt */
-        
-        /* Alignement */
+        padding: 10px 20px 20px 20px;
+        margin: 0;
         justify-content: flex-start;
         align-items: center;
-        
-        /* Retire les puces */
-        margin: 0;
-        list-style: none;
     }
 
-    /* 5. C'est ICI que Safari bloquait : on interdit aux liens de rétrécir */
     .nav-links li {
-        flex: 0 0 auto; /* "Ne grandis pas, ne rétrécis pas, garde ta taille" */
-        white-space: nowrap; /* Interdit le texte sur 2 lignes */
+        flex: 0 0 auto;
     }
 
-    /* 6. Style des boutons */
     .nav-links a {
-        display: inline-block; /* Important pour le padding */
+        display: inline-block;
         font-size: 0.9rem;
         background: rgba(255, 255, 255, 0.08);
         padding: 8px 16px;
@@ -1312,21 +1290,28 @@ main {
         border: 1px solid rgba(255,255,255,0.05);
     }
     
-    .nav-links a.active {
-        background: var(--accent);
-        color: var(--bg-color);
-    }
-
-    /* 7. Cache la barre de défilement (Scrollbar) pour que ce soit propre */
-    .nav-links::-webkit-scrollbar { display: none; } /* Chrome/Safari */
-    .nav-links { -ms-overflow-style: none; scrollbar-width: none; } /* Firefox */
-
-    /* 8. Ajustement du contenu de TOUTES les pages pour ne pas être caché par la navbar */
-    .page-header, .header-contact, .header-veille {
-        padding-top: 240px !important; 
+    /* 2. CORRECTIFS DECALAGE CONTENU */
+    
+    /* Pour les pages classiques */
+    .page-header, .header-veille {
+        padding-top: 220px !important; 
     }
     
+    /* Pour l'accueil */
     .hero-content {
-        padding-top: 140px; 
+        padding-top: 150px; 
+    }
+
+    /* 3. FIX SPECIFIQUE CONTACT (L'image coupée) */
+    .contact-container {
+        flex-direction: column; /* On empile tout */
+        padding-top: 50px !important; /* Un peu d'espace */
+        margin-top: 0 !important;
+    }
+
+    /* C'est ICI que ça se joue : on pousse l'image vers le bas */
+    .contact-visual {
+        margin-top: 200px !important; /* Force brute pour descendre l'image */
+        margin-bottom: 40px;
     }
 }
