@@ -619,3 +619,85 @@ main {
 .footer-link:hover {
     color: var(--accent);
 }
+
+/* --- Page Veille Technologique --- */
+
+/* Header spécifique avec image de fond */
+.header-veille {
+    background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), 
+                      url('https://images.unsplash.com/photo-1599507591144-667d4ed390ae?q=80&w=2070&auto=format&fit=crop');
+    /* Assure-toi que .page-header gère déjà background-size et background-position, sinon ajoute-les ici */
+}
+
+/* Section Méthodologie */
+.section-methodology {
+    margin-bottom: 60px;
+}
+
+.methodology-icon-wrapper {
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.methodology-icon {
+    font-size: 3rem;
+}
+
+/* Titres de section centrés */
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Tableau Technique */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1e293b;
+    border-radius: 8px;
+    color: #cbd5e1;
+    text-align: left;
+    overflow: hidden; /* Pour arrondir les coins du thead */
+}
+
+.tech-table thead tr {
+    background: #0f172a;
+}
+
+.tech-table th {
+    padding: 15px;
+    border-bottom: 2px solid #334155;
+    font-weight: bold;
+}
+
+.tech-table td {
+    padding: 15px;
+    border-bottom: 1px solid #334155;
+}
+
+.tech-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Section Concepts */
+.section-concepts {
+    margin-top: 80px;
+}
+
+/* Conclusion */
+.conclusion-card {
+    margin-top: 60px;
+    border-left: 4px solid var(--accent); /* Utilise ta variable globale */
+}
+
+.conclusion-text {
+    color: #cbd5e1;
+    line-height: 1.7;
+}
