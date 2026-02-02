@@ -4,16 +4,16 @@
     include 'includes/header.php'; 
 ?>
 
-<header class="page-header" style="background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1599507591144-667d4ed390ae?q=80&w=2070&auto=format&fit=crop');">
+<header class="page-header header-veille">
     <h1 class="page-title">Veille Technologique</h1>
     <p class="page-subtitle">L'évolution du langage PHP : du code "brouillon" aux standards professionnels modernes.</p>
 </header>
 
 <div class="content-wrapper">
 
-    <section class="school-card" style="margin-bottom: 60px;">
-        <div class="school-logo-wrapper" style="background: #0f172a;">
-             <span style="font-size: 3rem;">📡</span>
+    <section class="school-card section-methodology">
+        <div class="school-logo-wrapper methodology-icon-wrapper">
+             <span class="methodology-icon">📡</span>
         </div>
         
         <div class="school-info">
@@ -30,41 +30,41 @@
     </section>
 
     <section class="bts-section">
-        <h2 style="text-align: center; margin-bottom: 30px;">L'évolution technique : Avant vs Aujourd'hui</h2>
+        <h2 class="section-title">L'évolution technique : Avant vs Aujourd'hui</h2>
         <p class="bts-desc">Comprendre pourquoi PHP est devenu un langage robuste et rapide.</p>
         
-        <div style="overflow-x: auto; margin-top: 20px;">
-            <table style="width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 8px; color: #cbd5e1; text-align: left;">
+        <div class="table-responsive">
+            <table class="tech-table">
                 <thead>
-                    <tr style="background: #0f172a;">
-                        <th style="padding: 15px; border-bottom: 2px solid #334155;">Époque</th>
-                        <th style="padding: 15px; border-bottom: 2px solid #334155;">L'ancien problème</th>
-                        <th style="padding: 15px; border-bottom: 2px solid #334155;">La solution moderne</th>
+                    <tr>
+                        <th>Époque</th>
+                        <th>L'ancien problème</th>
+                        <th>La solution moderne</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="padding: 15px; border-bottom: 1px solid #334155;"><strong>Années 2000 (PHP 5)</strong></td>
-                        <td style="padding: 15px; border-bottom: 1px solid #334155;">Code mélangeant tout et failles SQL faciles.</td>
-                        <td style="padding: 15px; border-bottom: 1px solid #334155;">Arrivée du <strong>PDO</strong> : un traducteur qui sécurise les accès à la base de données.</td>
+                        <td><strong>Années 2000 (PHP 5)</strong></td>
+                        <td>Code mélangeant tout et failles SQL faciles.</td>
+                        <td>Arrivée du <strong>PDO</strong> : un traducteur qui sécurise les accès à la base de données.</td>
                     </tr>
                     <tr>
-                        <td style="padding: 15px; border-bottom: 1px solid #334155;"><strong>Années 2015 (PHP 7)</strong></td>
-                        <td style="padding: 15px; border-bottom: 1px solid #334155;">Sites lents qui consomment beaucoup de ressources serveur.</td>
-                        <td style="padding: 15px; border-bottom: 1px solid #334155;"><strong>Refonte du moteur</strong> : La vitesse est doublée, rendant le web plus fluide.</td>
+                        <td><strong>Années 2015 (PHP 7)</strong></td>
+                        <td>Sites lents qui consomment beaucoup de ressources serveur.</td>
+                        <td><strong>Refonte du moteur</strong> : La vitesse est doublée, rendant le web plus fluide.</td>
                     </tr>
                     <tr>
-                        <td style="padding: 15px;"><strong>Aujourd'hui (PHP 8)</strong></td>
-                        <td style="padding: 15px;">Calculs répétitifs qui ralentissent l'exécution.</td>
-                        <td style="padding: 15px;">Le <strong>JIT (Just-In-Time)</strong> : PHP apprend le code par cœur pour l'exécuter instantanément.</td>
+                        <td><strong>Aujourd'hui (PHP 8)</strong></td>
+                        <td>Calculs répétitifs qui ralentissent l'exécution.</td>
+                        <td>Le <strong>JIT (Just-In-Time)</strong> : PHP apprend le code par cœur pour l'exécuter instantanément.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
 
-    <section class="bts-section" style="margin-top: 80px;">
-        <h2 style="text-align: center;">Concepts clés expliqués simplement</h2>
+    <section class="bts-section section-concepts">
+        <h2 class="section-title">Concepts clés expliqués simplement</h2>
         <p class="bts-desc">
             Voici comment j'explique les innovations de PHP que j'utilise dans mes projets.
         </p>
@@ -94,9 +94,9 @@
         </div>
     </section>
 
-    <section class="detail-card" style="margin-top: 60px; border-left: 4px solid var(--accent);">
+    <section class="detail-card conclusion-card">
         <h2 class="detail-title">Pourquoi cette veille est essentielle ?</h2>
-        <p style="color: #cbd5e1; line-height: 1.7;">
+        <p class="conclusion-text">
             Suivre l'évolution de PHP me permet de ne pas utiliser de vieilles méthodes dépassées. Par exemple, sur mon <strong>Système de Réservation</strong>, j'utilise la programmation objet (POO) et PDO pour que le code soit facile à modifier et totalement sécurisé pour les patients.
         </p>
     </section>
