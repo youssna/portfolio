@@ -1,0 +1,165 @@
+<?php 
+    $titre = "Accueil";
+    $pageActuelle = "accueil"; 
+    include 'includes/header.php'; 
+?>
+
+<section class="parallax-hero">
+    <div class="overlay">
+        <div class="hero-content">
+            <h1>Bienvenue sur mon <span class="text-gradient">Portfolio</span></h1>
+            <p class="subtitle">Youssef Nasef — Développeur</p>
+
+            <div class="hero-btns">
+                <a href="assets/cv.pdf" target="_blank" class="btn secondary">Télécharger CV</a>
+            </div>
+        </div>
+
+        <a href="#skills" class="scroll-down" id="arrowDown"><span>&#8595;</span></a>
+    </div>
+</section>
+
+<section id="skills" class="skills-section">
+    <h2 class="skills-title">Mes Compétences</h2>
+    <p class="intro-skills">Clique sur une technologie pour voir les détails.</p>
+
+   <div class="skills-container">
+        <div class="skill-item" onclick="openModal('Langage C', 20, 'C\'est la base de tout. Comprendre la mémoire et l\'algo.', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg')">
+            <i class="devicon-c-plain colored"></i> <span class="skill-name">C</span>
+        </div>
+        <div class="skill-item" onclick="openModal('PHP', 35, 'Le cerveau du site web (Backend).', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg')">
+            <i class="devicon-php-plain colored"></i> <span class="skill-name">PHP</span>
+        </div>
+        <div class="skill-item" onclick="openModal('HTML5', 80, 'Le squelette de la page.', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg')">
+            <i class="devicon-html5-plain colored"></i> <span class="skill-name">HTML</span>
+        </div>
+        <div class="skill-item" onclick="openModal('CSS3', 85, 'Le maquilleur du site (Design).', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg')">
+            <i class="devicon-css3-plain colored"></i> <span class="skill-name">CSS</span>
+        </div>
+        <div class="skill-item" onclick="openModal('SQL', 70, 'Parler à la base de données.', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg')">
+            <i class="devicon-mysql-plain colored"></i> <span class="skill-name">SQL</span>
+        </div>
+        <div class="skill-item" onclick="openModal('Bootstrap', 80, 'Boîte à outils pour aller vite.', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg')">
+            <i class="devicon-bootstrap-plain colored"></i> <span class="skill-name">Bootstrap</span>
+        </div>
+        <div class="skill-item" onclick="openModal('GitHub', 65, 'Sauvegarder et partager le code.', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg')">
+            <i class="devicon-github-original"></i> <span class="skill-name">GitHub</span>
+        </div>
+    </div>
+</section>
+
+<section class="featured-projects">
+    <h2 class="skills-title">Projets Récents</h2>
+    <p class="intro-skills">Quelques réalisations concrètes durant ma formation.</p>
+
+    <div class="projects-grid">
+        
+        <a href="projet-vtc.php" class="project-card">
+            <div class="card-image">
+                <img src="assets/img/vtc.jpg" alt="Dashboard VTC">
+            </div>
+            <div class="card-info">
+                <h3>Site Chauffeur VTC</h3>
+                <p>Gestion de flotte en PHP/MVC.</p>
+                <div class="tags">
+                    <span>PHP</span>
+                    <span>MySQL</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="projet-almi.php" class="project-card">
+            <div class="card-image">
+                <img src="assets/img/gestionalmi.jpg" alt="Gestion stock Almi">
+            </div>
+            <div class="card-info">
+                <h3>Gestion de Stock Vans</h3>
+                <p>App Web interne ALMI Logistique.</p>
+                <div class="tags">
+                    <span>PHP</span>
+                    <span>MySQL</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="rdv.php" class="project-card">
+            <div class="card-image">
+                <img src="assets/img/rdv.jpg" alt="rdv medical">
+            </div>
+            <div class="card-info">
+                <h3>Système de réservation</h3>
+                <p>Plateforme complète de gestion de rendez-vous pour cabinet médical.</p>
+                <div class="tags">
+                    <span>PHP</span>
+                    <span>MySQL</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <a href="projets.php" class="btn secondary">Voir tous mes projets &rarr;</a>
+</section>
+
+<div id="skillModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img id="modal-img" src="" alt="Logo" style="width: 80px; margin-bottom: 1rem;">
+        <h3 id="modal-title" style="font-size: 2rem; margin-bottom: 0.5rem; color: #38bdf8;">Titre</h3>
+        <p id="modal-desc" style="font-size: 1.1rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 2rem;">Desc</p>
+        <div class="progress-container">
+            <label>Maîtrise : <span id="modal-level-text" style="color: #38bdf8; font-weight: bold;">0</span>%</label>
+            <div class="progress-bar"><div id="modal-progress" class="progress-fill"></div></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 1. Force Scroll Top (Retour en haut au chargement)
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+    setTimeout(() => window.scrollTo(0, 0), 10);
+
+    // 2. Click Flèche (Scroll doux)
+    const arrow = document.getElementById('arrowDown');
+    if(arrow){
+        arrow.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            document.querySelector('#skills').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    // 3. Navbar Solide au Scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // 4. Modal Logic
+    function openModal(title, level, desc, logo) {
+        document.getElementById('skillModal').style.display = 'flex';
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-desc').innerText = desc;
+        document.getElementById('modal-img').src = logo;
+        document.getElementById('modal-level-text').innerText = level;
+        setTimeout(() => document.getElementById('modal-progress').style.width = level + '%', 100);
+    }
+    function closeModal() {
+        document.getElementById('skillModal').style.display = 'none';
+        document.getElementById('modal-progress').style.width = '0%';
+    }
+    window.onclick = function(e) {
+        if (e.target == document.getElementById('skillModal')) closeModal();
+    }
+</script>
+
+<?php include 'includes/footer.php'; ?>
