@@ -612,70 +612,95 @@ main {
     color: var(--accent);
 }
 
-/* ==========================================================================
-   8. RESPONSIVE MOBILE FIX (NAVBAR & LAYOUT)
-   ========================================================================== */
-
+/* =========================================
+   RESPONSIVE NAVBAR (FIX SAFARI & IPHONE)
+   ========================================= */
 @media (max-width: 900px) {
     
-    /* 1. On ajuste la barre principale */
+    /* 1. La barre principale */
     .navbar {
-        height: auto; 
-        padding: 10px 15px; 
-        background: rgba(15, 23, 42, 0.98); /* Fond opaque sur mobile */
+        height: auto !important; /* Force la hauteur automatique */
+        min-height: 80px;
+        padding: 10px 0; /* On retire le padding horizontal pour gagner de la place */
+        background: rgba(15, 23, 42, 0.98);
+        flex-direction: column; /* Vertical */
+        align-items: flex-start;
     }
 
-    /* 2. On empile le Logo et les Liens */
+    /* 2. Le conteneur interne */
     .nav-content {
-        flex-direction: column; 
-        align-items: flex-start; 
-        gap: 15px; 
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        align-items: center; /* Centre le logo */
     }
 
-    /* 3. Le logo reste visible et centré */
+    /* 3. Logo centré en haut */
     .logo {
-        font-size: 1.4rem;
+        margin-bottom: 10px;
         width: 100%;
-        text-align: center; 
-        padding-bottom: 5px;
-        border-bottom: 1px solid rgba(255,255,255,0.1); 
+        text-align: center;
+        display: block;
     }
 
-    /* 4. Les liens deviennent défilants (Scroll Horizontal) */
+    /* 4. LE MENU DÉFILANT (La partie corrigée pour Safari) */
     .nav-links {
-        width: 100%;
         display: flex;
-        flex-direction: row;
-        overflow-x: auto; /* ACTIVE LE SCROLL HORIZONTAL */
-        gap: 20px;        
-        padding-bottom: 10px; 
-        justify-content: flex-start; 
+        flex-direction: row; /* Horizontal */
         
-        /* Cache la barre de défilement (Scrollbar) pour que ce soit joli */
-        -ms-overflow-style: none;  
-        scrollbar-width: none;  
+        /* Force la largeur à 100% de l'écran */
+        width: 100%;
+        max-width: 100vw;
+        
+        /* Active le scroll */
+        overflow-x: scroll; /* 'scroll' est plus agressif que 'auto' pour Safari */
+        overflow-y: hidden;
+        
+        /* INDISPENSABLE POUR IPHONE (Fluidité) */
+        -webkit-overflow-scrolling: touch; 
+        
+        /* Espacement */
+        gap: 15px;
+        padding: 10px 20px 20px 20px; /* Padding bas pour laisser place au doigt */
+        
+        /* Alignement */
+        justify-content: flex-start;
+        align-items: center;
+        
+        /* Retire les puces */
+        margin: 0;
+        list-style: none;
     }
 
-    /* Cache la scrollbar sur Chrome/Safari */
-    .nav-links::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* 5. Style des liens sur mobile */
+    /* 5. C'est ICI que Safari bloquait : on interdit aux liens de rétrécir */
     .nav-links li {
-        flex-shrink: 0; /* Empêche les liens de s'écraser */
+        flex: 0 0 auto; /* "Ne grandis pas, ne rétrécis pas, garde ta taille" */
+        white-space: nowrap; /* Interdit le texte sur 2 lignes */
     }
 
+    /* 6. Style des boutons */
     .nav-links a {
-        font-size: 0.95rem; 
-        white-space: nowrap; 
-        background: rgba(255, 255, 255, 0.05); 
-        padding: 8px 15px;
-        border-radius: 20px;
+        display: inline-block; /* Important pour le padding */
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 8px 16px;
+        border-radius: 50px;
+        color: #e2e8f0;
+        border: 1px solid rgba(255,255,255,0.05);
     }
     
-    /* Ajustement du header pour ne pas être caché par le menu */
+    .nav-links a.active {
+        background: var(--accent);
+        color: var(--bg-color);
+    }
+
+    /* 7. Cache la barre de défilement (Scrollbar) pour que ce soit propre */
+    .nav-links::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+    .nav-links { -ms-overflow-style: none; scrollbar-width: none; } /* Firefox */
+
+    /* 8. Ajustement du contenu de la page pour ne pas être caché */
     .page-header {
-        padding-top: 180px !important; 
+        padding-top: 200px !important; 
     }
 }
