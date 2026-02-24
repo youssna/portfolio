@@ -421,7 +421,7 @@ main {
 
 
 /* =========================================
-   PAGE DÉTAIL PROJET (projet-vtc, etc.)
+   6. PAGES PROJETS & GALERIE (GLOBAL)
    ========================================= */
 
 .project-header-img {
@@ -431,6 +431,23 @@ main {
     border-radius: 20px;
     border: 1px solid rgba(255,255,255,0.1);
     margin-bottom: 40px;
+}
+
+.project-header {
+    padding-top: 120px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.project-header h1 {
+    font-size: 3rem;
+    color: #f1f5f9;
+    font-weight: 800;
+}
+
+.project-header p {
+    color: #94a3b8;
+    font-size: 1.2rem;
 }
 
 .detail-grid {
@@ -476,6 +493,7 @@ main {
     display: flex; 
     gap: 10px; 
     flex-wrap: wrap; 
+    justify-content: center;
     margin-top: 10px; 
 }
 
@@ -488,23 +506,65 @@ main {
     font-size: 0.9rem;
 }
 
+/* --- Système de Galerie (Désormais Global !) --- */
+
+.gallery-section {
+    margin-bottom: 40px;
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    background: #1e293b; 
+    padding: 15px;
+    border-radius: 16px;
+    border: 1px solid #334155;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    border-color: #3b82f6; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* La ligne magique qui empêche l'image de dépasser */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #475569;
+}
+
+.gallery-item p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
 @media (max-width: 768px) {
     .detail-grid { grid-template-columns: 1fr; }
     .project-header-img { height: 250px; }
 }
 
-/* =========================================
-   PAGE : PROJETS & MODALE DÉTAILS
-   ========================================= */
 
-/* --- STYLE DE LA MODALE LARGE --- */
+/* =========================================
+   7. MODALE DÉTAILS PROJET (POPUP LARGE)
+   ========================================= */
 #projectModal .modal-content {
-    max-width: 900px; /* Plus large pour la lecture */
+    max-width: 900px; 
     text-align: left;
     padding: 40px;
 }
 
-/* Titre du projet dans la modale */
 #p-title {
     color: #f1f5f9; 
     font-size: 2.2rem; 
@@ -513,18 +573,16 @@ main {
     margin-bottom: 25px;
 }
 
-/* Blocs de contenu (Contexte, Missions...) */
 .project-details-section {
     margin-bottom: 25px;
-    background: rgba(15, 23, 42, 0.5); /* Fond légèrement plus foncé */
+    background: rgba(15, 23, 42, 0.5); 
     padding: 20px;
     border-radius: 10px;
     border: 1px solid rgba(255,255,255,0.05);
 }
 
-/* Sous-titres (Fonctionnalités, MVC...) */
 .project-subtitle {
-    color: var(--accent); /* Bleu du thème */
+    color: var(--accent);
     font-weight: 700;
     font-size: 1.2rem;
     margin-bottom: 15px;
@@ -533,7 +591,6 @@ main {
     display: flex; align-items: center; gap: 10px;
 }
 
-/* Listes à puces dans la modale */
 .modal-list { list-style: none; padding-left: 0; }
 .modal-list li { 
     position: relative; padding-left: 20px; margin-bottom: 8px; color: #cbd5e1;
@@ -545,7 +602,7 @@ main {
 
 
 /* ==========================================================================
-   6. PAGE VEILLE TECHNOLOGIQUE
+   8. PAGE VEILLE TECHNOLOGIQUE
    ========================================================================== */
 
 .header-veille {
@@ -568,13 +625,13 @@ main {
 
 
 /* ==========================================================================
-   7. FOOTER (PIED DE PAGE)
+   9. FOOTER (PIED DE PAGE)
    ========================================================================== */
 .site-footer {
     background-color: #0d131f; 
     color: #94a3b8; 
     padding: 30px 20px; 
-    margin-top: 40px;    
+    margin-top: 40px;   
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     text-align: center; 
 }
@@ -610,12 +667,12 @@ main {
     color: var(--accent);
 }
 
-/* =========================================
-   8. RESPONSIVE MOBILE FIX (NAVBAR & CONTACT)
-   ========================================= */
+/* ==========================================================================
+   10. RESPONSIVE MOBILE FIX (ÉCRANS < 900px)
+   ========================================================================== */
 @media (max-width: 900px) {
     
-    /* A. Navbar Mobile (Safari Friendly) */
+    /* A. Navbar Mobile */
     .navbar {
         height: auto !important;
         min-height: 80px;
@@ -666,7 +723,7 @@ main {
         border: 1px solid rgba(255,255,255,0.05);
     }
     
-    /* B. CORRECTIFS DECALAGE CONTENU (Autres pages) */
+    /* B. CORRECTIFS DECALAGE CONTENU */
     .page-header, .header-veille {
         padding-top: 220px !important; 
     }
@@ -675,11 +732,10 @@ main {
         padding-top: 150px; 
     }
 
-    /* C. FIX SPECIFIQUE CONTACT (UNIQUEMENT MOBILE) */
-    /* Ces règles s'activent SEULEMENT si l'écran est petit */
+    /* C. FIX SPECIFIQUE CONTACT */
     .contact-container {
-        flex-direction: column; /* Empile image puis texte */
-        padding-top: 160px !important; /* Pousse le contenu SOUS la barre */
+        flex-direction: column;
+        padding-top: 160px !important; 
         margin-top: 0 !important;
         padding-bottom: 40px;
         padding-left: 20px;
@@ -692,7 +748,6 @@ main {
         width: 100%; 
     }
     
-    /* On rapetisse un peu l'image sur mobile pour que ça rentre mieux */
     .avatar-3d, .avatar-glow {
         width: 280px; height: 280px;
     }
@@ -701,73 +756,4 @@ main {
         width: 100%;
         justify-content: center;
     }
-   /* --- Styles spécifiques aux pages projets --- */
-
-.project-header {
-    padding-top: 120px;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.project-header h1 {
-    font-size: 3rem;
-    color: #f1f5f9;
-    font-weight: 800;
-}
-
-.project-header p {
-    color: #94a3b8;
-    font-size: 1.2rem;
-}
-
-/* --- Système de Galerie --- */
-
-.gallery-section {
-    margin-bottom: 40px;
-}
-
-.project-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.gallery-item {
-    background: #1e293b; /* Couleur de carte sombre */
-    padding: 15px;
-    border-radius: 16px;
-    border: 1px solid #334155;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.gallery-item:hover {
-    transform: translateY(-8px);
-    border-color: #3b82f6; /* Bleu au survol */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #475569;
-}
-
-.gallery-item p {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-/* --- Ajustements Tech Badges --- */
-
-.tech-badges {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
 }
