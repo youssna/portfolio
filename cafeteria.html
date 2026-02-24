@@ -1,85 +1,132 @@
-<?php 
-    $titre = "E-CAFET' - FOODTECH";
-    $pageActuelle = "projets"; 
-    include 'includes/header.php'; 
-?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Cafet | Youssef Nasef</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js" defer></script>
+</head>
+<body>
 
-<header class="project-header">
-    <h1>E-CAFET'</h1>
-    <p>Application Full-Stack de commande en Click & Collect pour établissement scolaire.</p>
-</header>
-
-<div class="content-wrapper">
-
-    <div class="detail-grid">
-        <div class="detail-card">
-            <h2 class="detail-title">Présentation du projet</h2>
-            <ul class="detail-list">
-                <li>Plateforme e-commerce permettant aux étudiants de commander leur repas en ligne.</li>
-                <li>Interface fluide optimisée pour une prise de commande rapide.</li>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">YN</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="ecole.html">École</a></li>
+                <li><a href="entreprise.html">Entreprise</a></li>
+                <li><a href="projets.html" class="active">Projets</a></li>
+                <li><a href="veille.html">Veille</a></li>
+                <li><a href="contact.html" class="btn-contact">Contact</a></li>
             </ul>
         </div>
+    </nav>
 
-        <div class="detail-card">
-            <h2 class="detail-title">Fonctionnalités principales</h2>
-            <ul class="detail-list">
-                <li>Catalogue dynamique avec gestion des stocks en temps réel.</li>
-                <li>Système de panier intelligent et génération de numéros de retrait.</li>
-                <li>Espace Gérant : CRUD complet avec upload d'images.</li>
-            </ul>
-        </div>
+    <div style="padding-top: 120px; text-align: center; margin-bottom: 40px;">
+        <h1 style="font-size: 3rem; color: #f1f5f9; font-weight: 800;">E-CAFET' (FoodTech)</h1>
+        <p style="color: #94a3b8; font-size: 1.2rem;">Solution Click & Collect complète pour la gestion des repas en milieu scolaire.</p>
     </div>
 
-    <section class="detail-card gallery-section">
-        <h2 class="detail-title">Aperçu de l'interface</h2>
-        <div class="project-gallery">
-            <div class="gallery-item">
-                <img src="assets/img/capture-menu.jpg" alt="Menu des produits">
-                <p>Carte digitale interactive</p>
+    <div class="content-wrapper" style="padding-top: 0;">
+
+        <div class="detail-grid">
+            <div class="detail-card">
+                <h2 class="detail-title">Présentation du projet</h2>
+                <ul class="detail-list">
+                    <li>Plateforme e-commerce permettant aux étudiants de commander en ligne.</li>
+                    <li>Système fluide pour réduire le temps d'attente lors de la pause déjeuner.</li>
+                    <li>Interface utilisateur intuitive pensée pour une navigation rapide.</li>
+                </ul>
             </div>
-            <div class="gallery-item">
-                <img src="assets/img/capture-panier.jpg" alt="Panier de commande">
-                <p>Gestion dynamique du panier</p>
+
+            <div class="detail-card">
+                <h2 class="detail-title">Fonctionnalités principales</h2>
+                <ul class="detail-list">
+                    <li>Panier dynamique avec calcul du total en temps réel.</li>
+                    <li>Génération d'un numéro de commande unique pour le retrait.</li>
+                    <li>Espace Gérant complet : modification des prix, noms et stocks.</li>
+                </ul>
             </div>
-            <div class="gallery-item">
-                <img src="assets/img/capture-admin.jpg" alt="Espace gestionnaire">
-                <p>Dashboard d'administration</p>
+        </div>
+
+        <div class="detail-card gallery-section" style="margin-bottom: 30px;">
+            <h2 class="detail-title">Aperçu de l'interface</h2>
+            <div class="project-gallery">
+                <div class="gallery-item">
+                    <img src="assets/img/capture-menu.jpg" alt="Menu des produits">
+                    <p>Catalogue des produits</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/capture-panier.jpg" alt="Panier de commande">
+                    <p>Gestion du plateau / panier</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/capture-admin.jpg" alt="Espace gestionnaire">
+                    <p>Interface d'administration</p>
+                </div>
             </div>
         </div>
-    </section>
+        
+        <div class="detail-grid">
+            <div class="detail-card">
+                <h2 class="detail-title">Objectifs techniques</h2>
+                <ul class="detail-list">
+                    <li>Mise en œuvre d'une architecture <strong>MVC</strong> structurée.</li>
+                    <li>Gestion de base de données relationnelle complexe (Commandes/Produits).</li>
+                    <li>Sécurisation des transactions et des comptes utilisateurs.</li>
+                </ul>
+            </div>
 
-    <div class="detail-grid">
-        <div class="detail-card">
-            <h2 class="detail-title">Objectif du projet</h2>
-            <ul class="detail-list">
-                <li>Fluidifier le passage en caisse durant la pause déjeuner.</li>
-                <li>Offrir une expérience utilisateur moderne (UX).</li>
-            </ul>
+            <div class="detail-card">
+                <h2 class="detail-title">Gestion des stocks</h2>
+                <ul class="detail-list">
+                    <li>Mise à jour automatique des stocks après chaque commande.</li>
+                    <li>Affichage en temps réel des produits disponibles en vitrine.</li>
+                    <li>Possibilité pour le gérant de rajouter du stock via l'admin.</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="detail-card">
-            <h2 class="detail-title">Aspects Techniques</h2>
-            <ul class="detail-list">
-                <li>Architecture robuste <strong>MVC</strong>.</li>
-                <li>Sécurisation des accès et gestion des sessions PHP.</li>
-            </ul>
+        <div class="detail-card tech-summary-card">
+            <h3 style="color: #f1f5f9; margin-bottom: 15px;">Technologies utilisées</h3>
+            <div class="tech-badges" style="justify-content: center;">
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">MVC</span>
+                <span class="tech-tag">HTML / CSS</span>
+            </div>
         </div>
-    </div>
 
-    <div class="detail-card tech-summary-card">
-        <h3>Technologies utilisées</h3>
-        <div class="tech-badges">
-            <span class="tech-tag">PHP 8.2</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">MVC Architecture</span>
-            <span class="tech-tag">CSS Grid/Flexbox</span>
+        <div class="project-footer-action">
+            <a href="projets.html" class="btn-back">
+                &larr; Retour aux projets
+            </a>
         </div>
+
     </div>
 
-    <div class="project-footer-action">
-        <a href="projets.php" class="btn-back">&larr; Retour aux projets</a>
-    </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Youssef Nasef - PORTFOLIO. Tous droits réservés.</p>
+            <p>Développeur web & applications.</p>
+        </div>
 
-</div>
-
-<?php include 'includes/footer.php'; ?>
+        <div class="footer-links">
+            <div class="socials">
+                <a href="mailto:nasefyoussef@outlook.com" class="footer-link">Contactez-moi (Email)</a>
+                <a href="https://www.linkedin.com/in/youssefnasef/" target="_blank" class="footer-link">LinkedIn</a>
+                <a href="https://github.com/youssna" target="_blank" class="footer-link">GitHub</a>
+            </div>
+            
+            <div class="legal-links">
+                <a href="mentions-legales.html" class="footer-link">Mentions Légales</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
