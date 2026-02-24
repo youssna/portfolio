@@ -71,8 +71,6 @@ main {
 /* ==========================================================================
    3. PAGE ACCUEIL (HERO PARALLAXE & CONTENU)
    ========================================================================== */
-
-/* --- HERO SECTION --- */
 .parallax-hero {
     background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop');
     background-attachment: fixed; /* Effet Parallaxe */
@@ -223,17 +221,12 @@ main {
 /* ==========================================================================
    4. PAGES STANDARD (ECOLE, ENTREPRISE, PROJETS)
    ========================================================================== */
-
-/* Header spécifique pour ces pages */
 .page-header {
     background-size: cover; background-position: center;
-    margin-top: 0 !important; /* Colle en haut */
-    
-    /* Padding important pour que le texte soit visible sous le menu */
+    margin-top: 0 !important; 
     padding-top: 150px; 
     padding-bottom: 80px;
     padding-left: 20px; padding-right: 20px;
-    
     text-align: center;
 }
 
@@ -260,7 +253,6 @@ main {
 .school-info h2 a { text-decoration: none; color: inherit; }
 .school-info p { color: #cbd5e1; line-height: 1.7; margin-bottom: 20px; }
 
-/* Correctifs soulignement */
 .company-link, 
 .school-info h2 a {
     text-decoration: none !important;  
@@ -278,7 +270,6 @@ main {
     padding: 5px 15px; border-radius: 50px; font-weight: 600; font-size: 0.9rem;
 }
 
-/* Lien Entreprise */
 .company-link { border-bottom: 1px dotted var(--accent); transition: 0.3s; }
 .company-link:hover { color: var(--accent); border-bottom: 1px solid var(--accent); }
 
@@ -296,9 +287,7 @@ main {
 }
 .option-card:hover { transform: translateY(-5px); border-color: var(--accent) !important; }
 
-.option-img {
-    height: 200px; width: 100%; object-fit: cover;
-}
+.option-img { height: 200px; width: 100%; object-fit: cover; }
 
 .option-content { padding: 30px; text-align: left; }
 .option-content h3 { font-size: 1.6rem; color: #f1f5f9; margin-bottom: 5px; }
@@ -307,56 +296,9 @@ main {
 .job-list li { color: #cbd5e1; margin-bottom: 5px; list-style: none; }
 .job-list li::before { content: "•"; color: var(--accent); font-weight: bold; display: inline-block; width: 1em; }
 
-/* Responsive Mobile Pages (Tablettes) */
-@media (max-width: 768px) {
-    .school-card { flex-direction: column; text-align: center; }
-    .school-features { justify-content: center; }
-    .school-logo-wrapper { margin-bottom: 20px; }
-}
-
-/* =========================================
-   BLOCS DE RÉSUMÉ FINAL & BOUTON RETOUR
-   ========================================= */
-.tech-summary-card {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px; 
-}
-
-.btn-back {
-    display: inline-flex; 
-    align-items: center;
-    gap: 10px; 
-    color: var(--accent); 
-    background: transparent; 
-    border: 2px solid var(--accent); 
-    padding: 10px 25px;
-    border-radius: 50px; 
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 30px; 
-    transition: all 0.3s ease;
-}
-
-.btn-back:hover {
-    background: var(--accent); 
-    color: var(--bg-color); 
-    transform: translateX(-5px); 
-    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3); 
-}
-
-.project-footer-action {
-    display: flex;
-    justify-content: center; 
-    margin-top: 60px;        
-    margin-bottom: 20px;     
-    width: 100%;
-}
-
 
 /* ==========================================================================
-   5. PAGE CONTACT (STANDARD PC - LAYOUT NORMAL)
+   5. PAGE CONTACT
    ========================================================================== */
 .header-contact {
     background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2070&auto=format&fit=crop');
@@ -364,19 +306,17 @@ main {
 
 .contact-container {
     max-width: 1000px; 
-    margin: 80px auto; /* Marge standard pour PC */
+    margin: 80px auto; 
     padding: 0 40px;
     display: flex; 
     align-items: center; 
     justify-content: center;
     gap: 80px;
-    /* PAS DE PADDING-TOP GÉANT ICI */
 }
 
-/* Partie Gauche : Avatar 3D */
 .contact-visual {
     position: relative; flex: 1; display: flex; justify-content: center;
-    margin-top: 0; /* Marge normale */
+    margin-top: 0;
 }
 .avatar-glow {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -397,7 +337,6 @@ main {
     100% { transform: translateY(0px); }
 }
 
-/* Partie Droite : Texte & Liens */
 .contact-content { flex: 1.2; text-align: left; }
 .contact-title { font-size: 2.5rem; font-weight: 800; color: #f1f5f9; margin-bottom: 10px; }
 .contact-text { color: #94a3b8; font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6; }
@@ -419,36 +358,9 @@ main {
 .link-details span { color: var(--accent); font-weight: 500; }
 
 
-
-/* =========================================
-   6. PAGES PROJETS & GALERIE (GLOBAL)
-   ========================================= */
-
-.project-header-img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 40px;
-}
-
-.project-header {
-    padding-top: 120px;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.project-header h1 {
-    font-size: 3rem;
-    color: #f1f5f9;
-    font-weight: 800;
-}
-
-.project-header p {
-    color: #94a3b8;
-    font-size: 1.2rem;
-}
+/* ==========================================================================
+   6. PAGES PROJETS (DÉTAILS ET GALERIE)
+   ========================================================================== */
 
 .detail-grid {
     display: grid;
@@ -472,7 +384,6 @@ main {
 }
 
 .detail-list { padding-left: 0; }
-
 .detail-list li {
     color: #cbd5e1; 
     margin-bottom: 10px; 
@@ -480,13 +391,18 @@ main {
     position: relative; 
     padding-left: 20px;
 }
-
 .detail-list li::before {
     content: "•"; 
     color: var(--accent); 
     position: absolute; 
     left: 0; 
     font-weight: bold;
+}
+
+.tech-summary-card {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px; 
 }
 
 .tech-badges { 
@@ -496,7 +412,6 @@ main {
     justify-content: center;
     margin-top: 10px; 
 }
-
 .tech-tag {
     background: rgba(56, 189, 248, 0.15); 
     color: var(--accent);
@@ -506,39 +421,42 @@ main {
     font-size: 0.9rem;
 }
 
-/* --- Système de Galerie : 1 IMAGE EN GRAND PAR LIGNE --- */
-
+/* --- SYSTÈME DE GALERIE (ALGNEMENT PARFAIT 3 COLONNES) --- */
 .gallery-section {
     margin-bottom: 40px;
 }
 
 .project-gallery {
     display: grid;
-    /* On force la grille à n'afficher qu'une seule colonne pour que ce soit énorme */
-    grid-template-columns: 1fr; 
-    gap: 40px;
+    /* FORCE 3 COLONNES EXACTEMENT SUR ECRAN PC */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
     margin-top: 20px;
 }
 
 .gallery-item {
-    background: #1e293b; 
-    padding: 20px;
+    background: var(--card-bg); 
+    padding: 15px;
     border-radius: 16px;
     border: 1px solid #334155;
     transition: all 0.3s ease;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .gallery-item:hover {
     transform: translateY(-8px);
-    border-color: #3b82f6; 
+    border-color: var(--accent); 
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .gallery-item img {
     width: 100%;
-    height: auto;
+    /* Format forcé à 16/9 pour que les 3 images aient EXACTEMENT la même taille */
+    aspect-ratio: 16 / 9; 
     object-fit: cover;
+    object-position: top center;
     border-radius: 10px;
     margin-bottom: 15px;
     border: 1px solid #475569;
@@ -546,60 +464,43 @@ main {
 }
 
 .gallery-item p {
-    color: #94a3b8;
-    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
     font-weight: 600;
+    margin-top: auto; /* Aligne le texte en bas proprement */
+}
+
+/* Boutons d'action */
+.btn-back {
+    display: inline-flex; 
+    align-items: center;
+    gap: 10px; 
+    color: var(--accent); 
+    background: transparent; 
+    border: 2px solid var(--accent); 
+    padding: 10px 25px;
+    border-radius: 50px; 
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 30px; 
+    transition: all 0.3s ease;
+}
+.btn-back:hover {
+    background: var(--accent); 
+    color: var(--bg-color); 
+    transform: translateX(-5px); 
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3); 
+}
+.project-footer-action {
+    display: flex; justify-content: center; 
+    margin-top: 60px; margin-bottom: 20px; width: 100%;
 }
 
 
-/* =========================================
-   7. MODALE DÉTAILS PROJET (POPUP LARGE)
-   ========================================= */
-#projectModal .modal-content {
-    max-width: 900px; 
-    text-align: left;
-    padding: 40px;
-}
-
-#p-title {
-    color: #f1f5f9; 
-    font-size: 2.2rem; 
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 15px;
-    margin-bottom: 25px;
-}
-
-.project-details-section {
-    margin-bottom: 25px;
-    background: rgba(15, 23, 42, 0.5); 
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-.project-subtitle {
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex; align-items: center; gap: 10px;
-}
-
-.modal-list { list-style: none; padding-left: 0; }
-.modal-list li { 
-    position: relative; padding-left: 20px; margin-bottom: 8px; color: #cbd5e1;
-}
-.modal-list li::before {
-    content: "•"; color: var(--accent); font-weight: bold; position: absolute; left: 0;
-}
-.modal-list strong { color: #f1f5f9; font-weight: 600; }
-
-
-/* =========================================
-   8. LIGHTBOX (IMAGE EN PLEIN ÉCRAN)
-   ========================================= */
+/* ==========================================================================
+   7. LIGHTBOX (IMAGE EN PLEIN ÉCRAN)
+   ========================================================================== */
 .image-modal {
     display: none; 
     position: fixed; 
@@ -644,9 +545,8 @@ main {
 
 
 /* ==========================================================================
-   9. PAGE VEILLE TECHNOLOGIQUE
+   8. PAGE VEILLE TECHNOLOGIQUE
    ========================================================================== */
-
 .header-veille {
     background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), 
                       url('https://images.unsplash.com/photo-1599507591144-667d4ed390ae?q=80&w=2070&auto=format&fit=crop');
@@ -667,7 +567,7 @@ main {
 
 
 /* ==========================================================================
-   10. FOOTER (PIED DE PAGE)
+   9. FOOTER (PIED DE PAGE)
    ========================================================================== */
 .site-footer {
     background-color: #0d131f; 
@@ -677,130 +577,60 @@ main {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     text-align: center; 
 }
-
-.footer-content {
-    margin-bottom: 10px; 
-    font-size: 0.9rem;
-}
-
+.footer-content { margin-bottom: 10px; font-size: 0.9rem; }
 .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 50px; 
-    margin-top: 15px; 
-    margin-bottom: 5px; 
+    display: flex; flex-wrap: wrap; justify-content: center; 
+    gap: 50px; margin-top: 15px; margin-bottom: 5px; 
 }
-
-.socials, .legal-links {
-    display: flex;
-    gap: 20px; 
-}
-
+.socials, .legal-links { display: flex; gap: 20px; }
 .footer-link {
-    color: #94a3b8;
-    text-decoration: none;
-    transition: color 0.3s;
-    font-size: 1rem;
-    margin: 0;
+    color: #94a3b8; text-decoration: none; transition: color 0.3s; font-size: 1rem; margin: 0;
 }
+.footer-link:hover { color: var(--accent); }
 
-.footer-link:hover {
-    color: var(--accent);
-}
 
 /* ==========================================================================
-   11. RESPONSIVE MOBILE FIX (ÉCRANS < 900px)
+   10. RESPONSIVE MOBILE FIX (ÉCRANS < 768px & 900px)
    ========================================================================== */
 @media (max-width: 900px) {
-    
-    /* A. Navbar Mobile */
+    /* Navbar Mobile */
     .navbar {
-        height: auto !important;
-        min-height: 80px;
-        padding: 10px 0;
-        background: rgba(15, 23, 42, 0.98);
-        flex-direction: column;
-        align-items: flex-start;
+        height: auto !important; min-height: 80px; padding: 10px 0;
+        background: rgba(15, 23, 42, 0.98); flex-direction: column; align-items: flex-start;
     }
-
-    .nav-content {
-        flex-direction: column;
-        width: 100%;
-        padding: 0;
-        align-items: center;
-    }
-
-    .logo {
-        margin-bottom: 10px;
-        width: 100%;
-        text-align: center;
-        display: block;
-    }
-
+    .nav-content { flex-direction: column; width: 100%; padding: 0; align-items: center; }
+    .logo { margin-bottom: 10px; width: 100%; text-align: center; display: block; }
     .nav-links {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
-        gap: 15px;
-        padding: 10px 20px 20px 20px;
-        margin: 0;
-        justify-content: flex-start;
-        align-items: center;
+        display: flex; flex-direction: row; width: 100%; overflow-x: scroll;
+        -webkit-overflow-scrolling: touch; gap: 15px; padding: 10px 20px 20px 20px;
+        margin: 0; justify-content: flex-start; align-items: center;
     }
-
-    .nav-links li {
-        flex: 0 0 auto;
-    }
-
+    .nav-links li { flex: 0 0 auto; }
     .nav-links a {
-        display: inline-block;
-        font-size: 0.9rem;
-        background: rgba(255, 255, 255, 0.08);
-        padding: 8px 16px;
-        border-radius: 50px;
-        color: #e2e8f0;
-        border: 1px solid rgba(255,255,255,0.05);
+        display: inline-block; font-size: 0.9rem; background: rgba(255, 255, 255, 0.08);
+        padding: 8px 16px; border-radius: 50px; color: #e2e8f0; border: 1px solid rgba(255,255,255,0.05);
     }
     
-    /* B. CORRECTIFS DECALAGE CONTENU */
-    .page-header, .header-veille {
-        padding-top: 220px !important; 
-    }
-    
-    .hero-content {
-        padding-top: 150px; 
-    }
+    .page-header, .header-veille { padding-top: 220px !important; }
+    .hero-content { padding-top: 150px; }
 
-    /* C. FIX SPECIFIQUE CONTACT */
+    /* Contact Mobile */
     .contact-container {
-        flex-direction: column;
-        padding-top: 160px !important; 
-        margin-top: 0 !important;
-        padding-bottom: 40px;
-        padding-left: 20px;
-        padding-right: 20px;
+        flex-direction: column; padding-top: 160px !important; 
+        margin-top: 0 !important; padding-bottom: 40px; padding-left: 20px; padding-right: 20px;
     }
+    .contact-visual { margin-top: 0 !important; margin-bottom: 40px; width: 100%; }
+    .avatar-3d, .avatar-glow { width: 280px; height: 280px; }
+    .big-link-card { width: 100%; justify-content: center; }
+}
 
-    .contact-visual {
-        margin-top: 0 !important; 
-        margin-bottom: 40px;
-        width: 100%; 
-    }
+/* Grilles Mobile (Moins de 768px) */
+@media (max-width: 768px) {
+    .detail-grid { grid-template-columns: 1fr; }
+    .school-card { flex-direction: column; text-align: center; }
+    .school-features { justify-content: center; }
+    .school-logo-wrapper { margin-bottom: 20px; }
     
-    .avatar-3d, .avatar-glow {
-        width: 280px; height: 280px;
-    }
-    
-    .big-link-card {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    /* S'assurer que les grilles de détails s'empilent bien sur mobile */
-    .detail-grid { 
-        grid-template-columns: 1fr; 
-    }
+    /* Sur téléphone, on remet les images de la galerie les unes sous les autres */
+    .project-gallery { grid-template-columns: 1fr; } 
 }
