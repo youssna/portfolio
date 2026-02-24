@@ -506,7 +506,7 @@ main {
     font-size: 0.9rem;
 }
 
-/* --- Système de Galerie (Désormais Global !) --- */
+/* --- Système de Galerie : 1 IMAGE EN GRAND PAR LIGNE --- */
 
 .gallery-section {
     margin-bottom: 40px;
@@ -514,14 +514,15 @@ main {
 
 .project-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* <-- Images plus grandes de base */
-    gap: 25px;
+    /* On force la grille à n'afficher qu'une seule colonne pour que ce soit énorme */
+    grid-template-columns: 1fr; 
+    gap: 40px;
     margin-top: 20px;
 }
 
 .gallery-item {
     background: #1e293b; 
-    padding: 15px;
+    padding: 20px;
     border-radius: 16px;
     border: 1px solid #334155;
     transition: all 0.3s ease;
@@ -534,7 +535,6 @@ main {
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* La ligne magique qui empêche l'image de dépasser */
 .gallery-item img {
     width: 100%;
     height: auto;
@@ -542,13 +542,13 @@ main {
     border-radius: 10px;
     margin-bottom: 15px;
     border: 1px solid #475569;
-    cursor: pointer; /* Indique qu'on peut cliquer */
+    cursor: pointer;
 }
 
 .gallery-item p {
     color: #94a3b8;
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 
@@ -797,5 +797,10 @@ main {
     .big-link-card {
         width: 100%;
         justify-content: center;
+    }
+    
+    /* S'assurer que les grilles de détails s'empilent bien sur mobile */
+    .detail-grid { 
+        grid-template-columns: 1fr; 
     }
 }
