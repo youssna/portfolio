@@ -514,7 +514,7 @@ main {
 
 .project-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* <-- Images plus grandes de base */
     gap: 25px;
     margin-top: 20px;
 }
@@ -542,17 +542,13 @@ main {
     border-radius: 10px;
     margin-bottom: 15px;
     border: 1px solid #475569;
+    cursor: pointer; /* Indique qu'on peut cliquer */
 }
 
 .gallery-item p {
     color: #94a3b8;
     font-size: 0.95rem;
     font-weight: 500;
-}
-
-@media (max-width: 768px) {
-    .detail-grid { grid-template-columns: 1fr; }
-    .project-header-img { height: 250px; }
 }
 
 
@@ -601,8 +597,54 @@ main {
 .modal-list strong { color: #f1f5f9; font-weight: 600; }
 
 
+/* =========================================
+   8. LIGHTBOX (IMAGE EN PLEIN ÉCRAN)
+   ========================================= */
+.image-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    padding-top: 80px; 
+    left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(15, 23, 42, 0.95); 
+    backdrop-filter: blur(5px);
+}
+
+.image-modal-content {
+    margin: auto; 
+    display: block; 
+    width: 90%; 
+    max-width: 1200px; 
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+#image-caption {
+    margin: auto; display: block; width: 80%; max-width: 700px;
+    text-align: center; color: var(--accent); font-weight: 600;
+    padding: 15px 0; font-size: 1.2rem;
+}
+
+.close-image-modal {
+    position: absolute; top: 20px; right: 40px;
+    color: #f1f5f9; font-size: 40px; font-weight: bold; transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-image-modal:hover, .close-image-modal:focus {
+    color: var(--accent); text-decoration: none; cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+
 /* ==========================================================================
-   8. PAGE VEILLE TECHNOLOGIQUE
+   9. PAGE VEILLE TECHNOLOGIQUE
    ========================================================================== */
 
 .header-veille {
@@ -625,7 +667,7 @@ main {
 
 
 /* ==========================================================================
-   9. FOOTER (PIED DE PAGE)
+   10. FOOTER (PIED DE PAGE)
    ========================================================================== */
 .site-footer {
     background-color: #0d131f; 
@@ -668,7 +710,7 @@ main {
 }
 
 /* ==========================================================================
-   10. RESPONSIVE MOBILE FIX (ÉCRANS < 900px)
+   11. RESPONSIVE MOBILE FIX (ÉCRANS < 900px)
    ========================================================================== */
 @media (max-width: 900px) {
     
