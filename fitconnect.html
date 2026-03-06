@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitConnect | Youssef Nasef</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js" defer></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">YN</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="ecole.html">École</a></li>
+                <li><a href="entreprise.html">Entreprise</a></li>
+                <li><a href="projets.html" class="active">Projets</a></li>
+                <li><a href="veille.html">Veille</a></li>
+                <li><a href="contact.html" class="btn-contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="padding-top: 120px; text-align: center; margin-bottom: 40px;">
+        <h1 style="font-size: 3rem; color: #f1f5f9; font-weight: 800;">FITCONNECT (SportTech)</h1>
+        <p style="color: #94a3b8; font-size: 1.2rem;">Écosystème complet de coaching sportif : Administration Java & Plateforme Web.</p>
+    </div>
+
+    <div class="content-wrapper" style="padding-top: 0;">
+
+        <div class="detail-grid">
+            <div class="detail-card">
+                <h2 class="detail-title">Présentation du projet</h2>
+                <ul class="detail-list">
+                    <li>Solution hybride permettant de gérer une salle de sport ou un réseau de coachs.</li>
+                    <li>Premier projet majeur utilisant <strong>Java</strong> pour la partie métier.</li>
+                    <li>Communication fluide entre une interface lourde (Desktop) et un portail client (Web).</li>
+                </ul>
+            </div>
+
+            <div class="detail-card">
+                <h2 class="detail-title">Fonctionnalités hybrides</h2>
+                <ul class="detail-list">
+                    <li><strong>Admin (Java) :</strong> Validation des coachs, gestion des clients et suivi des statistiques.</li>
+                    <li><strong>Client (Web) :</strong> Inscription, choix d'objectif et consultation du programme.</li>
+                    <li><strong>Automatisation :</strong> Assignation intelligente des programmes selon les objectifs.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="detail-grid">
+            <div class="detail-card">
+                <h2 class="detail-title">Défis techniques</h2>
+                <ul class="detail-list">
+                    <li>Mise en place du pattern <strong>DAO (Data Access Object)</strong> en Java.</li>
+                    <li>Synchronisation d'une base de données unique pour deux environnements différents.</li>
+                    <li>Gestion des contraintes d'intégrité SQL lors de la suppression de données liées.</li>
+                </ul>
+            </div>
+
+            <div class="detail-card">
+                <h2 class="detail-title">Architecture & Data</h2>
+                <ul class="detail-list">
+                    <li>Utilisation de JDBC pour la connexion Java / MySQL.</li>
+                    <li>Interface utilisateur Java Swing avec design personnalisé (FlatLaf).</li>
+                    <li>Modélisation relationnelle optimisée pour le matching Coach/Client.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="detail-card gallery-section" style="margin-bottom: 40px;">
+            <h2 class="detail-title">Aperçu de l'écosystème</h2>
+            <div class="project-gallery">
+                <div class="gallery-item">
+                    <img src="assets/img/fitconnect-java.jpg" alt="Interface Java Swing">
+                    <p>Dashboard Administration (Java)</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/fitconnect-web.jpg" alt="Interface Web PHP">
+                    <p>Portail Client (PHP)</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/fitconnect-db.jpg" alt="Structure Base de données">
+                    <p>Architecture de la base de données</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-card tech-summary-card">
+            <h3 style="color: #f1f5f9; margin-bottom: 15px;">Technologies exploitées</h3>
+            <div class="tech-badges" style="justify-content: center;">
+                <span class="tech-tag">Java (Swing)</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL (JDBC)</span>
+                <span class="tech-tag">Architecture DAO</span>
+                <span class="tech-tag">HTML / CSS</span>
+            </div>
+        </div>
+
+        <div class="project-footer-action">
+            <a href="projets.html" class="btn-back">
+                &larr; Retour aux projets
+            </a>
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Youssef Nasef - PORTFOLIO. Tous droits réservés.</p>
+            <p>Développeur web & applications.</p>
+        </div>
+
+        <div class="footer-links">
+            <div class="socials">
+                <a href="mailto:nasefyoussef@outlook.com" class="footer-link">Contactez-moi (Email)</a>
+                <a href="https://www.linkedin.com/in/youssefnasef/" target="_blank" class="footer-link">LinkedIn</a>
+                <a href="https://github.com/youssna" target="_blank" class="footer-link">GitHub</a>
+            </div>
+            
+            <div class="legal-links">
+                <a href="mentions-legales.html" class="footer-link">Mentions Légales</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
