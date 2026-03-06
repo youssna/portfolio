@@ -120,10 +120,51 @@
                     </div>
                 </div>
             </div>
-            
-            <br>
-            
+        </section>
 
+        <section class="bts-section">
+            <h2 class="section-title">Détails techniques (Fiche mémoire)</h2>
+            <p class="bts-desc">Cliquez pour dérouler les informations détaillées sur l'évolution du langage.</p>
+
+            <div class="faq-container">
+                <details class="tech-details">
+                    <summary>1. Les origines (1994) et le concept Client/Serveur</summary>
+                    <div class="details-content">
+                        <p><strong>Création :</strong> Par Rasmus Lerdorf en 1994. À la base, un simple outil en C pour suivre son CV en ligne.</p>
+                        <p><strong>Client vs Serveur :</strong> Contrairement à JavaScript qui tourne sur le navigateur du client, PHP tourne sur le serveur. L'utilisateur ne voit jamais le code PHP, il ne reçoit que le résultat final (le HTML). Cela permet de sécuriser la logique métier et de rendre le site dynamique.</p>
+                        <br>
+                        
+                    </div>
+                </details>
+
+                <details class="tech-details">
+                    <summary>2. Le moteur sous le capot : Zend Engine</summary>
+                    <div class="details-content">
+                        <p>PHP n'est pas magique. Pour que le serveur comprenne le code, il utilise un "moteur" interne appelé le <strong>Zend Engine</strong> (depuis 1999). C'est lui qui lit, compile et exécute les scripts PHP avant de renvoyer la page web.</p>
+                    </div>
+                </details>
+
+                <details class="tech-details">
+                    <summary>3. Pourquoi la POO a tout changé (PHP 5)</summary>
+                    <div class="details-content">
+                        <p>La Programmation Orientée Objet (POO) permet d'organiser le code en "objets" réutilisables. Sans la POO, l'architecture <strong>MVC (Modèle-Vue-Contrôleur)</strong> n'existerait pas.</p>
+                        <p>Le MVC sépare la Base de données (Modèle), le Design (Vue) et la Logique (Contrôleur). C'est ce qui a permis à PHP de passer d'un code "spaghetti" (brouillon) à des standards professionnels comme les frameworks Laravel ou Symfony.</p>
+                        <br>
+                        
+
+[Image of MVC architecture diagram]
+
+                    </div>
+                </details>
+
+                <details class="tech-details">
+                    <summary>4. Le nettoyage et la rigueur (PHP 7)</summary>
+                    <div class="details-content">
+                        <p><strong>Typage strict :</strong> Arrivé avec PHP 7, il oblige le développeur à préciser le type exact d'une donnée (ex: un nombre, une chaîne de caractères). Si on envoie du texte au lieu d'un nombre, le code plante net au lieu de créer un bug invisible.</p>
+                        <p><strong>Vitesse :</strong> PHP 7 a aussi refondu le Zend Engine, rendant les sites deux fois plus rapides qu'avant.</p>
+                    </div>
+                </details>
+            </div>
         </section>
 
         <section class="detail-card conclusion-card">
