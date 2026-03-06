@@ -29,7 +29,7 @@
 
     <header class="page-header header-veille">
         <h1 class="page-title">Veille Technologique</h1>
-        <p class="page-subtitle">L'évolution de PHP : la fin du "Code Spaghetti" et l'arrivée des standards professionnels.</p>
+        <p class="page-subtitle">L'évolution de PHP : de 1994 aux standards professionnels modernes (POO & MVC).</p>
     </header>
 
     <div class="content-wrapper">
@@ -42,7 +42,7 @@
             <div class="school-info">
                 <h2>Ma Méthodologie de Veille</h2>
                 <p>
-                    Pour mes projets professionnels et académiques, je surveille l'actualité de PHP et de ses frameworks. Cela me permet de structurer mon code selon les meilleures pratiques actuelles du marché.
+                    Pour mes projets professionnels et académiques, je surveille l'actualité de PHP et de ses frameworks. Comprendre l'histoire du langage me permet de structurer mon code selon les meilleures pratiques actuelles du marché.
                 </p>
                 <div class="school-features">
                     <a href="https://www.journaldunet.com/web-tech/developpement/" target="_blank" class="badge">Le Journal du Net</a>
@@ -53,33 +53,38 @@
         </section>
 
         <section class="bts-section">
-            <h2 class="section-title">L'évolution technique : Avant vs Aujourd'hui</h2>
-            <p class="bts-desc">Comprendre comment PHP est passé d'un langage brouillon à un outil industriel.</p>
+            <h2 class="section-title">L'évolution historique : Vers un code industriel</h2>
+            <p class="bts-desc">Comment PHP est passé d'un simple outil de page dynamique à un écosystème robuste.</p>
             
             <div class="table-responsive">
                 <table class="tech-table">
                     <thead>
                         <tr>
-                            <th>Époque</th>
-                            <th>L'ancien problème</th>
-                            <th>La solution moderne</th>
+                            <th>Année / Version</th>
+                            <th>L'innovation majeure</th>
+                            <th>L'impact sur les développeurs</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Années 2000 (PHP 4/5)</strong></td>
-                            <td>Le "Code Spaghetti" : HTML, requêtes SQL et logique PHP tout mélangés dans un seul fichier.</td>
-                            <td><strong>Séparation des concepts</strong> pour rendre le code lisible.</td>
+                            <td><strong>1994 (Création)</strong></td>
+                            <td>Créé par Rasmus Lerdorf.</td>
+                            <td>Permet de rendre les pages web dynamiques (interaction client/serveur) au lieu de simples pages HTML statiques.</td>
                         </tr>
                         <tr>
-                            <td><strong>Années 2010 (PHP 7)</strong></td>
-                            <td>Fichiers désorganisés et maintenance impossible sur de gros projets.</td>
-                            <td>Adoption massive de <strong>l'Architecture MVC</strong> (Modèle-Vue-Contrôleur).</td>
+                            <td><strong>2004 (PHP 5)</strong></td>
+                            <td>L'arrivée de la <strong>POO</strong> (Programmation Orientée Objet).</td>
+                            <td>C'est la fin du "Code Spaghetti". Cela permet de créer des architectures propres comme le <strong>MVC</strong>.</td>
                         </tr>
                         <tr>
-                            <td><strong>Aujourd'hui (PHP 8)</strong></td>
-                            <td>Perte de temps à réinventer la roue pour chaque nouveau site.</td>
-                            <td>Utilisation de <strong>Frameworks robustes</strong> (Laravel, Symfony) pour développer vite et de manière sécurisée.</td>
+                            <td><strong>2015 (PHP 7)</strong></td>
+                            <td>Le <strong>Typage strict</strong> (Types scalaires).</td>
+                            <td>Le code devient beaucoup plus rigoureux. Il plante immédiatement s'il y a une erreur de type de donnée, ce qui évite les bugs invisibles.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aujourd'hui (PHP 8+)</strong></td>
+                            <td>Écosystème sécurisé et Frameworks.</td>
+                            <td>Utilisation de frameworks (Laravel, Symfony) et sécurité renforcée avec <strong>PDO</strong> contre les injections SQL.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -87,9 +92,9 @@
         </section>
 
         <section class="bts-section section-concepts">
-            <h2 class="section-title">Concepts clés expliqués simplement</h2>
+            <h2 class="section-title">Concepts clés que j'utilise aujourd'hui</h2>
             <p class="bts-desc">
-                Voici les standards modernes que j'applique dans mes développements.
+                Voici les standards modernes issus de cette évolution que j'applique dans mes développements.
             </p>
 
             <div class="options-grid">
@@ -97,30 +102,36 @@
                     <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" alt="Architecture Code" class="option-img">
                     <div class="option-content">
                         <h3>L'Architecture MVC</h3>
-                        <span class="option-subtitle">L'organisation parfaite</span>
+                        <span class="option-subtitle">Séparer pour mieux régner</span>
                         <p>
-                            Fini le code brouillon. Le projet est divisé en 3 parties : la base de données (Modèle), l'affichage (Vue) et la logique (Contrôleur). C'est beaucoup plus simple à lire et à maintenir.
+                            Le projet est divisé en 3 couches distinctes : la base de données (Modèle), l'affichage HTML (Vue) et la logique PHP (Contrôleur). Le code est maintenable et professionnel.
                         </p>
                     </div>
                 </div>
 
                 <div class="option-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Frameworks" class="option-img">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" alt="Sécurité Web" class="option-img">
                     <div class="option-content">
-                        <h3>Les Frameworks (Laravel / Symfony)</h3>
-                        <span class="option-subtitle">La boîte à outils des pros</span>
+                        <h3>Sécurité et Typage</h3>
+                        <span class="option-subtitle">La rigueur avant tout</span>
                         <p>
-                            Ce sont des structures prêtes à l'emploi qui nous évitent de tout coder de zéro. Ils intègrent nativement des outils de sécurité comme <strong>PDO</strong> pour contrer les piratages (Injections SQL).
+                            J'utilise <strong>PDO</strong> pour sécuriser les requêtes SQL contre le piratage, et j'applique le typage strict pour m'assurer que mes fonctions reçoivent exactement les bonnes données.
                         </p>
                     </div>
                 </div>
             </div>
+            
+            <br>
+            
+
+[Image of MVC architecture diagram]
+
         </section>
 
         <section class="detail-card conclusion-card">
-            <h2 class="detail-title">Pourquoi cette veille est essentielle ?</h2>
+            <h2 class="detail-title">L'impact direct sur mon travail</h2>
             <p class="conclusion-text">
-                Suivre ces évolutions me permet de coder comme un professionnel. Par exemple, sur mon <strong>Système de Réservation</strong>, j'utilise l'architecture MVC pour que mon application soit facile à faire évoluer, propre, et prête pour le travail en équipe.
+                Cette veille n'est pas que de la théorie. Sur mon <strong>Système de Réservation médicale</strong>, j'ai appliqué l'architecture MVC couplée à la POO. Résultat : si je dois modifier le design du site (la Vue), je n'ai aucun risque de casser le système d'enregistrement des rendez-vous (le Modèle). C'est ce qui fait la différence entre un code amateur et un code professionnel.
             </p>
         </section>
 
