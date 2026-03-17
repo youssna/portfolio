@@ -45,8 +45,8 @@
                     Pour mes projets professionnels et académiques, je surveille l'actualité de PHP et de ses frameworks. Comprendre l'histoire du langage me permet de structurer mon code selon les meilleures pratiques actuelles du marché.
                 </p>
                 <div class="school-features">
+                    <a href="https://laravel-news.com/" target="_blank" class="badge">Laravel News (International)</a>
                     <a href="https://www.journaldunet.com/web-tech/developpement/" target="_blank" class="badge">Le Journal du Net</a>
-                    <a href="https://www.developpez.com/" target="_blank" class="badge">Developpez.com</a>
                     <a href="https://afup.org/" target="_blank" class="badge">AFUP (Association PHP France)</a>
                 </div>
             </div>
@@ -132,8 +132,6 @@
                     <div class="details-content">
                         <p><strong>Création :</strong> Par Rasmus Lerdorf en 1994. À la base, un simple outil en C pour suivre son CV en ligne.</p>
                         <p><strong>Client vs Serveur :</strong> Contrairement à JavaScript qui tourne sur le navigateur du client, PHP tourne sur le serveur. L'utilisateur ne voit jamais le code PHP, il ne reçoit que le résultat final (le HTML). Cela permet de sécuriser la logique métier et de rendre le site dynamique.</p>
-                        <br>
-                        
                     </div>
                 </details>
 
@@ -149,7 +147,6 @@
                     <div class="details-content">
                         <p>La Programmation Orientée Objet (POO) permet d'organiser le code en "objets" réutilisables. Sans la POO, l'architecture <strong>MVC (Modèle-Vue-Contrôleur)</strong> n'existerait pas.</p>
                         <p>Le MVC sépare la Base de données (Modèle), le Design (Vue) et la Logique (Contrôleur). C'est ce qui a permis à PHP de passer d'un code "spaghetti" (brouillon) à des standards professionnels comme les frameworks Laravel ou Symfony.</p>
-                        <br>
                     </div>
                 </details>
 
@@ -164,8 +161,8 @@
         </section>
 
         <section class="bts-section section-rss">
-            <h2 class="section-title">Actualités PHP en Temps Réel (Flux RSS)</h2>
-            <p class="bts-desc">Les 3 derniers articles récupérés automatiquement via l'API du flux RSS de Developpez.com.</p>
+            <h2 class="section-title">Actualités PHP & Laravel (Flux RSS en temps réel)</h2>
+            <p class="bts-desc">Les 3 derniers articles récupérés automatiquement via l'API du flux international Laravel News.</p>
 
             <div id="rss-feed-container" class="options-grid">
                 <p style="text-align: center; width: 100%; color: #38bdf8;">📡 Chargement des actualités en cours...</p>
@@ -211,10 +208,10 @@
             const rssContainer = document.getElementById('rss-feed-container');
             
             if (rssContainer) {
-                // L'URL du flux RSS (section PHP de Developpez.com)
-                const rssUrl = 'https://php.developpez.com/index/rss';
+                // L'URL du flux RSS (Laravel News - Très actif)
+                const rssUrl = 'https://laravel-news.com/feed';
                 
-                // Utilisation de l'API rss2json pour contourner le blocage CORS de GitHub Pages
+                // Utilisation de l'API rss2json pour contourner le blocage CORS
                 const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
 
                 fetch(apiUrl)
