@@ -164,7 +164,7 @@
         </section>
 
         <section class="bts-section section-rss">
-            <h2 class="section-title">Actualités PHP en Temps Réel (Flux RSS)</h2>
+            <h2 class="section-title">Actualités Développement Web (Flux RSS)</h2>
             <p class="bts-desc">Les 3 derniers articles récupérés automatiquement via l'API du flux RSS de Developpez.com.</p>
 
             <div id="rss-feed-container" class="options-grid">
@@ -211,8 +211,8 @@
             const rssContainer = document.getElementById('rss-feed-container');
             
             if (rssContainer) {
-                // L'URL du flux RSS (section PHP de Developpez.com)
-                const rssUrl = 'https://www.planete-php.fr/rss.xml';
+                // Flux RSS Développement Web (Très actif, en français)
+                const rssUrl = 'https://web.developpez.com/index/rss';
                 
                 // Utilisation de l'API rss2json pour contourner le blocage CORS de GitHub Pages
                 const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
@@ -220,6 +220,11 @@
                 fetch(apiUrl)
                     .then(response => response.json())
                     .then(data => {
+                        // SÉCURITÉ : Si l'API renvoie une erreur, on arrête tout proprement
+                        if(data.status !== "ok") {
+                            throw new Error("L'API n'a pas pu lire le flux RSS.");
+                        }
+
                         rssContainer.innerHTML = ''; // Vide le message de chargement
 
                         // On prend les 3 premiers articles
@@ -250,8 +255,8 @@
                         });
                     })
                     .catch(error => {
-                        console.error("Erreur lors de la récupération du flux RSS:", error);
-                        rssContainer.innerHTML = '<p style="text-align: center; color: #ef4444;">Erreur lors du chargement des actualités. Veuillez réessayer plus tard.</p>';
+                        console.error("Erreur détaillée du flux RSS :", error);
+                        rssContainer.innerHTML = '<p style="text-align: center; color: #ef4444;">Erreur lors du chargement des actualités. Vérifiez votre connexion.</p>';
                     });
             }
         });
