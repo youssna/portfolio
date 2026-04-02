@@ -146,4 +146,48 @@
     </div>
 
     <script>
-        // 1.
+        function openModal(title, level, desc, iconUrl) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-img').src = iconUrl;
+            document.getElementById('modal-level-text').innerText = level;
+            document.getElementById('modal-progress').style.width = level + '%';
+            
+            // Affiche la modale
+            document.getElementById('skillModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('skillModal').style.display = 'none';
+        }
+
+        // Ferme la modale si l'utilisateur clique en dehors du cadre
+        window.onclick = function(event) {
+            const modal = document.getElementById('skillModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Youssef Nasef - PORTFOLIO. Tous droits réservés.</p>
+            <p>Développeur web & applications.</p>
+        </div>
+
+        <div class="footer-links">
+            <div class="socials">
+                <a href="mailto:nasefyoussef@outlook.com" class="footer-link">Contactez-moi (Email)</a>
+                <a href="https://www.linkedin.com/in/youssefnasef/" target="_blank" class="footer-link">LinkedIn</a>
+                <a href="https://github.com/youssna" target="_blank" class="footer-link">GitHub</a>
+            </div>
+            
+            <div class="legal-links">
+                <a href="mentions-legales.html" class="footer-link">Mentions Légales</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
