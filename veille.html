@@ -45,8 +45,7 @@
                     Pour mes projets professionnels et académiques, je surveille l'actualité de PHP et de ses frameworks. Comprendre l'histoire du langage me permet de structurer mon code selon les meilleures pratiques actuelles du marché.
                 </p>
                 <div class="school-features">
-                    <a href="https://news.google.com/" target="_blank" class="badge">Google Actualités </a>
-                    <a href="https://www.php.net/" target="_blank" class="badge">Documentation Officielle</a>
+                    <a href="https://www.php.net/" target="_blank" class="badge">Documentation Officielle (PHP.net)</a>
                 </div>
             </div>
         </section>
@@ -160,8 +159,8 @@
         </section>
 
         <section class="bts-section section-rss">
-            <h2 class="section-title">Actualités PHP en Temps Réel (Flux RSS)</h2>
-            <p class="bts-desc">Les derniers articles récupérés via l'API Google Actualités.</p>
+            <h2 class="section-title">Actualités Officielles (PHP.net)</h2>
+            <p class="bts-desc">Les 3 dernières nouveautés et mises à jour récupérées en direct depuis le flux de la documentation officielle.</p>
 
             <div id="rss-feed-container" class="options-grid">
                 <p style="text-align: center; width: 100%; color: #38bdf8;">📡 Chargement des actualités en cours...</p>
@@ -207,8 +206,8 @@
             const rssContainer = document.getElementById('rss-feed-container');
             
             if (rssContainer) {
-                // Flux RSS Google News avec filtre strict sur "langage PHP" en français
-                const rssUrl = 'https://news.google.com/rss/search?q=langage+PHP+développement&hl=fr&gl=FR&ceid=FR:fr';
+                // Flux Atom officiel de PHP.net
+                const rssUrl = 'https://www.php.net/feed.atom';
                 
                 // Utilisation de l'API rss2json
                 const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
@@ -222,25 +221,25 @@
 
                         rssContainer.innerHTML = ''; 
 
-                        // On prend les 3 premiers articles de Google Actualités
+                        // On prend les 3 premiers articles du site officiel
                         const articles = data.items.slice(0, 3);
 
                         articles.forEach(item => {
                             const date = new Date(item.pubDate).toLocaleDateString('fr-FR');
                             
-                            // Nettoyage de la source rajoutée par Google
-                            let title = item.title.split(' - ')[0];
-                            let description = item.source ? "Source : " + item.source : "Actualité PHP";
+                            // Récupération de la description et nettoyage des balises HTML
+                            let rawContent = item.content || item.description || "Nouvelle annonce PHP.";
+                            let description = rawContent.replace(/(<([^>]+)>)/gi, "").substring(0, 110) + '...';
 
                             const cardHtml = `
                                 <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
                                     <div class="option-content" style="padding: 20px;">
-                                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">${title}</h3>
+                                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">${item.title}</h3>
                                         <span class="option-subtitle" style="display: block; margin-bottom: 10px; font-size: 0.85rem; color: #38bdf8;">🗓️ ${date}</span>
-                                        <p style="font-size: 0.9rem; margin-bottom: 15px; color: #cbd5e1; font-style: italic;">${description}</p>
+                                        <p style="font-size: 0.9rem; margin-bottom: 15px; color: #cbd5e1;">${description}</p>
                                     </div>
                                     <div style="padding: 0 20px 20px 20px;">
-                                        <a href="${item.link}" target="_blank" class="badge" style="text-decoration: none; display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; transition: 0.3s;">Lire l'article</a>
+                                        <a href="${item.link}" target="_blank" class="badge" style="text-decoration: none; display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; transition: 0.3s;">Lire sur PHP.net</a>
                                     </div>
                                 </div>
                             `;
@@ -250,11 +249,10 @@
                     })
                     .catch(error => {
                         console.error("Erreur détaillée du flux RSS :", error);
-                        rssContainer.innerHTML = '<p style="text-align: center; color: #ef4444;">Erreur lors du chargement des actualités.</p>';
+                        rssContainer.innerHTML = '<p style="text-align: center; color: #ef4444;">Erreur lors du chargement des actualités officielles.</p>';
                     });
             }
         });
     </script>
 </body>
 </html>
-```
