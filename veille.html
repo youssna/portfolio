@@ -159,7 +159,7 @@
         </section>
 
         <section class="bts-section section-rss">
-            <h2 class="section-title">Actualités Officielles (PHP.net)</h2>
+            <h2 class="section-title">Actualités Officielles</h2>
             <p class="bts-desc">Les 3 dernières nouveautés et mises à jour récupérées en direct depuis le flux de la documentation officielle.</p>
 
             <div id="rss-feed-container" class="options-grid">
@@ -202,6 +202,29 @@
     </footer>
 
     <script>
+        // --- MINI TRADUCTEUR ANGLAIS -> FRANÇAIS POUR PHP.NET ---
+        function traduirePHP(texte) {
+            let frTexte = texte;
+            // Traduction des titres
+            frTexte = frTexte.replace(/Released!/gi, "est disponible !");
+            frTexte = frTexte.replace(/Released/gi, "est disponible");
+            frTexte = frTexte.replace(/Release Candidate/gi, "Version Candidate");
+            
+            // Traduction du contenu courant
+            frTexte = frTexte.replace(/The PHP development team announces the immediate availability of/gi, "L'équipe de développement PHP annonce la disponibilité immédiate de");
+            frTexte = frTexte.replace(/This is a security release/gi, "Il s'agit d'une mise à jour de sécurité majeure.");
+            frTexte = frTexte.replace(/This is a bug fix release/gi, "Il s'agit d'une mise à jour corrective (correction de bugs).");
+            frTexte = frTexte.replace(/All PHP/gi, "Tous les utilisateurs de PHP");
+            frTexte = frTexte.replace(/users are encouraged to upgrade to this version/gi, "sont fortement encouragés à mettre à jour vers cette version.");
+            frTexte = frTexte.replace(/For source downloads of/gi, "Pour télécharger le code source de");
+            frTexte = frTexte.replace(/please visit our downloads page/gi, "veuillez visiter la page de téléchargement.");
+            frTexte = frTexte.replace(/Windows binaries can be found on the/gi, "Les versions Windows se trouvent sur le site");
+            frTexte = frTexte.replace(/The list of changes is recorded in the/gi, "La liste complète des modifications est dans le");
+            frTexte = frTexte.replace(/ChangeLog/gi, "Journal des modifications (ChangeLog)");
+            
+            return frTexte;
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             const rssContainer = document.getElementById('rss-feed-container');
             
@@ -227,19 +250,23 @@
                         articles.forEach(item => {
                             const date = new Date(item.pubDate).toLocaleDateString('fr-FR');
                             
-                            // Récupération de la description et nettoyage des balises HTML
+                            // Traduction du Titre
+                            let titreTraduit = traduirePHP(item.title);
+
+                            // Récupération de la description, nettoyage du HTML et Traduction
                             let rawContent = item.content || item.description || "Nouvelle annonce PHP.";
-                            let description = rawContent.replace(/(<([^>]+)>)/gi, "").substring(0, 110) + '...';
+                            let descriptionTexte = rawContent.replace(/(<([^>]+)>)/gi, "").substring(0, 150) + '...';
+                            let descriptionTraduite = traduirePHP(descriptionTexte);
 
                             const cardHtml = `
                                 <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
                                     <div class="option-content" style="padding: 20px;">
-                                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">${item.title}</h3>
+                                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">${titreTraduit}</h3>
                                         <span class="option-subtitle" style="display: block; margin-bottom: 10px; font-size: 0.85rem; color: #38bdf8;">🗓️ ${date}</span>
-                                        <p style="font-size: 0.9rem; margin-bottom: 15px; color: #cbd5e1;">${description}</p>
+                                        <p style="font-size: 0.9rem; margin-bottom: 15px; color: #cbd5e1; line-height: 1.5;">${descriptionTraduite}</p>
                                     </div>
                                     <div style="padding: 0 20px 20px 20px;">
-                                        <a href="${item.link}" target="_blank" class="badge" style="text-decoration: none; display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; transition: 0.3s;">Lire sur PHP.net</a>
+                                        <a href="${item.link}" target="_blank" class="badge" style="text-decoration: none; display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; transition: 0.3s;">Voir l'annonce officielle</a>
                                     </div>
                                 </div>
                             `;
