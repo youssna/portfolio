@@ -4,15 +4,316 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Technologique | Youssef Nasef</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/script.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:        #080f1a;
+            --surface:   #0d1829;
+            --surface2:  #111f35;
+            --border:    rgba(56, 189, 248, 0.12);
+            --accent:    #38bdf8;
+            --accent2:   #818cf8;
+            --green:     #34d399;
+            --orange:    #fb923c;
+            --text:      #e2e8f0;
+            --muted:     #64748b;
+            --heading:   #f8fafc;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* ── NAV ─────────────────────────────────────────── */
+        .navbar {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(8, 15, 26, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+        .nav-content {
+            max-width: 1100px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+        }
+        .logo {
+            font-family: 'Sora', sans-serif; font-weight: 800;
+            font-size: 1.2rem; color: var(--accent); text-decoration: none;
+        }
+        .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: var(--muted); text-decoration: none;
+            font-size: 0.9rem; transition: color .2s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--heading); }
+        .btn-contact {
+            background: var(--accent); color: var(--bg) !important;
+            padding: 6px 16px; border-radius: 6px; font-weight: 600;
+        }
+
+        /* ── HERO ────────────────────────────────────────── */
+        .hero {
+            position: relative; overflow: hidden;
+            padding: 100px 2rem 80px;
+            text-align: center;
+            background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(56,189,248,.12) 0%, transparent 70%);
+        }
+        .hero-tag {
+            display: inline-block; margin-bottom: 1.2rem;
+            background: rgba(56,189,248,.1); border: 1px solid var(--border);
+            color: var(--accent); font-size: .78rem; font-weight: 600;
+            letter-spacing: .08em; text-transform: uppercase;
+            padding: 5px 14px; border-radius: 999px;
+        }
+        .hero h1 {
+            font-family: 'Sora', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800; color: var(--heading); line-height: 1.15; margin-bottom: 1rem;
+        }
+        .hero h1 span { color: var(--accent); }
+        .hero p {
+            max-width: 580px; margin: 0 auto; color: var(--muted); font-size: 1.05rem;
+        }
+
+        /* ── TABLE OF CONTENTS ───────────────────────────── */
+        .toc {
+            max-width: 860px; margin: 0 auto 60px;
+            padding: 0 2rem;
+        }
+        .toc-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: .75rem;
+        }
+        .toc-item {
+            display: flex; align-items: center; gap: .6rem;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 8px; padding: 10px 14px;
+            text-decoration: none; color: var(--text);
+            font-size: .88rem; transition: border-color .2s, background .2s;
+        }
+        .toc-item:hover { border-color: var(--accent); background: var(--surface2); }
+        .toc-num {
+            font-family: 'Sora', sans-serif; font-weight: 700;
+            color: var(--accent); font-size: .8rem; min-width: 22px;
+        }
+
+        /* ── WRAPPER ─────────────────────────────────────── */
+        .wrapper { max-width: 860px; margin: 0 auto; padding: 0 2rem 80px; }
+
+        /* ── SECTION GENERIC ─────────────────────────────── */
+        .section { margin-bottom: 72px; }
+        .section-label {
+            display: inline-flex; align-items: center; gap: .5rem;
+            font-family: 'Sora', sans-serif; font-size: .72rem; font-weight: 700;
+            letter-spacing: .1em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: .75rem;
+        }
+        .section-label::before {
+            content: ''; display: block; width: 18px; height: 2px;
+            background: var(--accent); border-radius: 2px;
+        }
+        .section h2 {
+            font-family: 'Sora', sans-serif; font-size: 1.6rem;
+            font-weight: 700; color: var(--heading); margin-bottom: .6rem;
+        }
+        .section > p { color: var(--muted); margin-bottom: 1.8rem; }
+
+        /* ── CARD ────────────────────────────────────────── */
+        .card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 12px; padding: 28px 32px; margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-family: 'Sora', sans-serif; font-size: 1.05rem;
+            font-weight: 700; color: var(--heading); margin-bottom: .5rem;
+        }
+        .card p { color: var(--text); font-size: .95rem; }
+
+        /* ── TWO COLS ─────────────────────────────────────── */
+        .two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 640px) { .two-cols { grid-template-columns: 1fr; } }
+
+        /* ── METHODOLOGY STEPS ───────────────────────────── */
+        .steps { display: flex; flex-direction: column; gap: .75rem; }
+        .step {
+            display: flex; gap: 1rem; align-items: flex-start;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 10px; padding: 18px 22px;
+        }
+        .step-icon {
+            font-size: 1.4rem; min-width: 36px; text-align: center;
+            margin-top: 2px;
+        }
+        .step-body h4 {
+            font-family: 'Sora', sans-serif; font-weight: 700;
+            color: var(--heading); font-size: .95rem; margin-bottom: 4px;
+        }
+        .step-body p { color: var(--muted); font-size: .88rem; }
+        .step-body a { color: var(--accent); text-decoration: none; }
+        .step-body a:hover { text-decoration: underline; }
+
+        /* ── SOURCES TAGS ────────────────────────────────── */
+        .sources-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+        .source-tag {
+            display: inline-flex; align-items: center; gap: .4rem;
+            background: rgba(56,189,248,.07); border: 1px solid var(--border);
+            color: var(--accent); font-size: .8rem; padding: 4px 12px;
+            border-radius: 999px; text-decoration: none; transition: background .2s;
+        }
+        .source-tag:hover { background: rgba(56,189,248,.15); }
+
+        /* ── COMPARISON TABLE ────────────────────────────── */
+        .table-wrap { overflow-x: auto; border-radius: 12px; }
+        table {
+            width: 100%; border-collapse: collapse;
+            background: var(--surface); font-size: .92rem;
+        }
+        thead { background: rgba(56,189,248,.08); }
+        th {
+            padding: 14px 18px; text-align: left;
+            font-family: 'Sora', sans-serif; font-size: .8rem;
+            font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+            color: var(--accent); border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 14px 18px; border-bottom: 1px solid var(--border);
+            color: var(--text); vertical-align: top;
+        }
+        tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background: var(--surface2); }
+        .tag-good {
+            display: inline-block; background: rgba(52,211,153,.1);
+            color: var(--green); border: 1px solid rgba(52,211,153,.2);
+            font-size: .75rem; font-weight: 600; padding: 2px 8px;
+            border-radius: 4px; margin-left: 6px;
+        }
+        .tag-neutral {
+            display: inline-block; background: rgba(251,146,60,.1);
+            color: var(--orange); border: 1px solid rgba(251,146,60,.2);
+            font-size: .75rem; font-weight: 600; padding: 2px 8px;
+            border-radius: 4px; margin-left: 6px;
+        }
+
+        /* ── NEWS CARDS ──────────────────────────────────── */
+        .news-grid { display: flex; flex-direction: column; gap: 1rem; }
+        .news-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px 28px;
+            display: flex; gap: 1.4rem; align-items: flex-start;
+            transition: border-color .2s;
+        }
+        .news-card:hover { border-color: rgba(56,189,248,.35); }
+        .news-date {
+            min-width: 80px; text-align: center;
+            background: rgba(56,189,248,.08); border: 1px solid var(--border);
+            border-radius: 8px; padding: 8px;
+        }
+        .news-date .month {
+            display: block; font-size: .7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: .08em; color: var(--accent);
+        }
+        .news-date .year {
+            display: block; font-size: .75rem; color: var(--muted); margin-top: 2px;
+        }
+        .news-body h3 {
+            font-family: 'Sora', sans-serif; font-size: 1rem;
+            font-weight: 700; color: var(--heading); margin-bottom: .4rem;
+        }
+        .news-body p { color: var(--muted); font-size: .9rem; margin-bottom: .7rem; }
+        .news-body strong { color: var(--text); }
+        .news-link {
+            font-size: .82rem; color: var(--accent); text-decoration: none;
+            font-weight: 600;
+        }
+        .news-link:hover { text-decoration: underline; }
+        .badge-type {
+            display: inline-block; font-size: .72rem; font-weight: 700;
+            padding: 2px 9px; border-radius: 4px; margin-bottom: .6rem;
+        }
+        .badge-major { background: rgba(129,140,248,.12); color: var(--accent2); border: 1px solid rgba(129,140,248,.2); }
+        .badge-standard { background: rgba(52,211,153,.1); color: var(--green); border: 1px solid rgba(52,211,153,.2); }
+        .badge-feature { background: rgba(251,146,60,.1); color: var(--orange); border: 1px solid rgba(251,146,60,.2); }
+
+        @media (max-width: 500px) {
+            .news-card { flex-direction: column; }
+            .news-date { display: flex; gap: .5rem; align-items: center; width: fit-content; }
+        }
+
+        /* ── FORECAST CARD ───────────────────────────────── */
+        .forecast-card {
+            background: linear-gradient(135deg, rgba(56,189,248,.08), rgba(129,140,248,.06));
+            border: 1px solid rgba(56,189,248,.2);
+            border-radius: 14px; padding: 32px 36px;
+        }
+        .forecast-card h3 {
+            font-family: 'Sora', sans-serif; font-size: 1rem;
+            font-weight: 700; color: var(--heading); margin-bottom: .5rem;
+        }
+        .forecast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.2rem; }
+        @media (max-width: 580px) { .forecast-grid { grid-template-columns: 1fr; } }
+        .forecast-item {
+            background: rgba(255,255,255,.03); border: 1px solid var(--border);
+            border-radius: 10px; padding: 18px 20px;
+        }
+        .forecast-item h4 {
+            font-family: 'Sora', sans-serif; font-weight: 700;
+            color: var(--heading); font-size: .9rem; margin-bottom: .4rem;
+        }
+        .forecast-item p { color: var(--muted); font-size: .85rem; }
+
+        /* ── BILAN CARD ──────────────────────────────────── */
+        .bilan-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 14px; padding: 32px 36px;
+            display: flex; gap: 2rem; align-items: flex-start;
+        }
+        @media (max-width: 600px) { .bilan-card { flex-direction: column; } }
+        .bilan-icon {
+            font-size: 2.8rem; min-width: 60px; text-align: center;
+            background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.15);
+            border-radius: 12px; padding: 12px;
+        }
+        .bilan-body h3 {
+            font-family: 'Sora', sans-serif; font-size: 1.1rem;
+            font-weight: 700; color: var(--heading); margin-bottom: .8rem;
+        }
+        .bilan-body p { color: var(--text); font-size: .95rem; margin-bottom: .8rem; }
+        .bilan-body p:last-child { margin-bottom: 0; }
+
+        /* ── BACK LINK ───────────────────────────────────── */
+        .back-wrap { text-align: center; margin-top: 48px; }
+        .btn-back {
+            display: inline-flex; align-items: center; gap: .5rem;
+            color: var(--muted); text-decoration: none; font-size: .9rem;
+            border: 1px solid var(--border); padding: 10px 22px;
+            border-radius: 8px; transition: color .2s, border-color .2s;
+        }
+        .btn-back:hover { color: var(--heading); border-color: var(--accent); }
+
+        /* ── FOOTER ──────────────────────────────────────── */
+        footer {
+            border-top: 1px solid var(--border); padding: 32px 2rem;
+            text-align: center; color: var(--muted); font-size: .85rem;
+        }
+        footer a { color: var(--muted); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: .6rem; flex-wrap: wrap; }
+    </style>
 </head>
 <body>
 
+    <!-- ── NAV ── -->
     <nav class="navbar">
         <div class="nav-content">
             <a href="index.html" class="logo">YN</a>
@@ -27,188 +328,326 @@
         </div>
     </nav>
 
-    <header class="page-header header-veille">
-        <h1 class="page-title">Veille Technologique</h1>
-        <p class="page-subtitle">La révolution des interfaces web avec React.</p>
+    <!-- ── HERO ── -->
+    <header class="hero">
+        <span class="hero-tag">BTS SIO · Veille Technologique</span>
+        <h1>L'écosystème <span>React</span><br>et le développement Front-End</h1>
+        <p>Comment les Single Page Applications ont transformé la façon de construire le web, et pourquoi React s'est imposé comme le standard du marché.</p>
     </header>
 
-    <div class="content-wrapper">
+    <!-- ── TABLE OF CONTENTS ── -->
+    <nav class="toc" aria-label="Sommaire">
+        <div class="toc-grid">
+            <a href="#sujet" class="toc-item"><span class="toc-num">01</span> Mon sujet de veille</a>
+            <a href="#methodo" class="toc-item"><span class="toc-num">02</span> Méthodologie</a>
+            <a href="#concepts" class="toc-item"><span class="toc-num">03</span> React expliqué</a>
+            <a href="#comparaison" class="toc-item"><span class="toc-num">04</span> Comparaison frameworks</a>
+            <a href="#actus" class="toc-item"><span class="toc-num">05</span> Dernières mises à jour</a>
+            <a href="#previsions" class="toc-item"><span class="toc-num">06</span> Prévisions</a>
+            <a href="#bilan" class="toc-item"><span class="toc-num">07</span> Bilan personnel</a>
+        </div>
+    </nav>
 
-        <!-- 1. LE SUJET DE LA VEILLE -->
-        <section class="school-card section-methodology">
-            <div class="school-logo-wrapper methodology-icon-wrapper">
-                 <span class="methodology-icon">🌐</span>
-            </div>
-            
-            <div class="school-info">
-                <h2>1. Mon sujet de veille : Le Front-End</h2>
+    <main class="wrapper">
+
+        <!-- ── 01 SUJET ── -->
+        <section id="sujet" class="section">
+            <div class="section-label">01 · Sujet</div>
+            <h2>Mon sujet de veille</h2>
+            <p>Pourquoi j'ai choisi d'étudier React et les SPA pour mon BTS SIO.</p>
+
+            <div class="card">
                 <p>
-                    Pour ma veille technologique, j'ai décidé de me concentrer sur le développement <strong>Front-End</strong> (la partie visible des sites web). Mon sujet principal porte sur la création de <strong>Single Page Applications (SPA)</strong>. Ce sont des sites web modernes qui ne rechargent jamais : tout se met à jour instantanément sur la même page, offrant la même fluidité qu'une application mobile. Pour réaliser cela, j'étudie la technologie leader du marché : <strong>React</strong>.
+                    Pour ma veille technologique, j'ai choisi d'étudier la création de <strong>Single Page Applications (SPA)</strong> — des sites web qui fonctionnent comme des applications mobiles, sans rechargement de page. Ce type d'interface est aujourd'hui la norme dans la plupart des entreprises du secteur numérique.
                 </p>
-                <div class="school-features">
-                    <span class="badge">Interface Utilisateur (UI)</span>
-                    <span class="badge">Expérience Utilisateur (UX)</span>
-                </div>
+                <br>
+                <p>
+                    Pour comprendre concrètement comment ces projets sont construits, j'ai centré ma veille sur <strong>React</strong>, la bibliothèque JavaScript la plus adoptée pour le front-end en 2024–2025 selon les sondages annuels Stack Overflow. Ce choix me permet d'anticiper les attentes du marché du travail à la sortie de mon BTS.
+                </p>
             </div>
         </section>
 
-        <!-- 2. C'EST QUOI UN FRAMEWORK / REACT -->
-        <section class="bts-section section-concepts">
-            <h2 class="section-title">2. Comprendre React et les Frameworks</h2>
-            <p class="bts-desc">Les concepts de base expliqués simplement.</p>
+        <!-- ── 02 MÉTHODOLOGIE ── -->
+        <section id="methodo" class="section">
+            <div class="section-label">02 · Méthodologie</div>
+            <h2>Comment je fais ma veille</h2>
+            <p>Les outils et habitudes que j'utilise pour rester informé régulièrement.</p>
 
-            <div class="options-grid">
-                <div class="option-card">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" alt="Boîte à outils" class="option-img">
-                    <div class="option-content">
-                        <h3>C'est quoi un Framework ?</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; color: #cbd5e1;">
-                            C'est une <strong>boîte à outils</strong> prête à l'emploi. Au lieu de réinventer la roue et de coder un système complexe à partir de zéro, un framework nous fournit une base de travail solide et des règles à suivre pour coder plus vite, de manière sécurisée et sans erreurs.
-                        </p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">📖</div>
+                    <div class="step-body">
+                        <h4>Documentation officielle</h4>
+                        <p>Je consulte <a href="https://react.dev" target="_blank">react.dev</a> et le blog officiel React pour suivre les annonces de nouvelles versions et lire les guides de migration. C'est ma source principale pour les informations fiables.</p>
                     </div>
                 </div>
-
-                <div class="option-card">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" alt="Composants Lego" class="option-img">
-                    <div class="option-content">
-                        <h3>Comment fonctionne React ?</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; color: #cbd5e1;">
-                            Créé par Meta (Facebook), React fonctionne comme des <strong>Legos</strong>. On découpe le site en petits blocs indépendants (un composant pour le menu, un autre pour un bouton). Si on modifie le bloc "bouton", il se met à jour automatiquement partout sur le site, sans avoir à réécrire du code.
-                        </p>
+                <div class="step">
+                    <div class="step-icon">📰</div>
+                    <div class="step-body">
+                        <h4>Newsletter & agrégateurs</h4>
+                        <p>Je suis la newsletter <strong>This Week In React</strong> (hebdomadaire) et je consulte régulièrement <a href="https://dev.to/t/react" target="_blank">Dev.to</a> et <a href="https://hashnode.com" target="_blank">Hashnode</a> pour des retours d'expérience de développeurs.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🎥</div>
+                    <div class="step-body">
+                        <h4>Vidéos & tutoriels</h4>
+                        <p>Je regarde des vidéos sur YouTube (chaînes <em>Theo - t3.gg</em>, <em>Fireship</em>) qui analysent les nouveautés de façon claire et accessibles. Utile pour comprendre rapidement ce que changent les nouvelles fonctionnalités.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">💻</div>
+                    <div class="step-body">
+                        <h4>Pratique et expérimentation</h4>
+                        <p>Je complète la théorie par la pratique en créant de petits composants dans un environnement de test local. <a href="https://codesandbox.io" target="_blank">CodeSandbox</a> me permet aussi de tester rapidement des exemples sans installation.</p>
                     </div>
                 </div>
             </div>
+
+            <div class="sources-list">
+                <a class="source-tag" href="https://react.dev/blog" target="_blank">🔗 react.dev/blog</a>
+                <a class="source-tag" href="https://thisweekinreact.com" target="_blank">🔗 This Week In React</a>
+                <a class="source-tag" href="https://dev.to/t/react" target="_blank">🔗 Dev.to</a>
+                <a class="source-tag" href="https://survey.stackoverflow.co/2024" target="_blank">🔗 Stack Overflow Survey 2024</a>
+                <a class="source-tag" href="https://stateofjs.com" target="_blank">🔗 State of JS 2024</a>
+            </div>
         </section>
 
-        <!-- 3. COMPARAISON -->
-        <section class="bts-section">
-            <h2 class="section-title">3. Comparaison : React VS PHP Classique</h2>
-            <p class="bts-desc">Pourquoi l'industrie adopte massivement cette technologie.</p>
-            
-            <div class="table-responsive">
-                <table class="tech-table">
+        <!-- ── 03 CONCEPTS ── -->
+        <section id="concepts" class="section">
+            <div class="section-label">03 · Concepts</div>
+            <h2>React expliqué simplement</h2>
+            <p>Les deux notions clés pour comprendre ce qu'est React et pourquoi il est populaire.</p>
+
+            <div class="two-cols">
+                <div class="card">
+                    <h3>🧰 C'est quoi une bibliothèque front-end ?</h3>
+                    <p>
+                        C'est un ensemble d'outils prêts à l'emploi. Au lieu de tout coder à la main, une bibliothèque comme React fournit des "briques" réutilisables qui permettent de construire une interface plus vite et de façon plus fiable.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>🧩 Comment fonctionne React ?</h3>
+                    <p>
+                        React découpe le site en <strong>composants</strong> indépendants (un menu, un bouton, une carte). Si on modifie un composant, React met à jour <em>uniquement la partie concernée</em> de la page — sans tout recharger. C'est ce qui le rend très rapide.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 1rem;">
+                <h3>📌 React, une bibliothèque ou un framework ?</h3>
+                <p>
+                    Techniquement, React est une <strong>bibliothèque</strong> (elle gère uniquement l'interface visuelle), pas un framework complet. En pratique, elle est presque toujours associée à d'autres outils : <strong>Next.js</strong> pour le routage et le rendu côté serveur, <strong>TanStack Query</strong> pour la gestion des données, <strong>Tailwind CSS</strong> pour le style. On parle alors d'un "écosystème React".
+                </p>
+            </div>
+        </section>
+
+        <!-- ── 04 COMPARAISON ── -->
+        <section id="comparaison" class="section">
+            <div class="section-label">04 · Comparaison</div>
+            <h2>React face à la concurrence</h2>
+            <p>Les trois grandes bibliothèques/frameworks front-end utilisés en entreprise aujourd'hui (source : State of JS 2024).</p>
+
+            <div class="table-wrap">
+                <table>
                     <thead>
                         <tr>
                             <th>Critère</th>
-                            <th>Un site classique (ex: PHP)</th>
-                            <th>Un site avec React</th>
+                            <th>React</th>
+                            <th>Vue.js</th>
+                            <th>Angular</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Le chargement</strong></td>
-                            <td>À chaque clic, l'écran devient blanc et la page se recharge entièrement depuis le serveur.</td>
-                            <td><strong>Instantané.</strong> La page ne se recharge pas. React ne modifie que la petite partie de l'écran qui a changé.</td>
+                            <td><strong>Créé par</strong></td>
+                            <td>Meta (2013)</td>
+                            <td>Evan You (2014)</td>
+                            <td>Google (2016)</td>
                         </tr>
                         <tr>
-                            <td><strong>Organisation du code</strong></td>
-                            <td>Le HTML, le CSS et la logique peuvent vite s'emmêler sur de gros fichiers.</td>
-                            <td>Tout est rangé dans de petits <strong>Composants</strong> réutilisables, beaucoup plus faciles à maintenir en équipe.</td>
+                            <td><strong>Part de marché</strong></td>
+                            <td><strong>~40 %</strong> des projets JS <span class="tag-good">Leader</span></td>
+                            <td>~20 %</td>
+                            <td>~20 %</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Courbe d'apprentissage</strong></td>
+                            <td>Moyenne</td>
+                            <td>Douce <span class="tag-good">Facile</span></td>
+                            <td>Élevée <span class="tag-neutral">Complexe</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Utilisation typique</strong></td>
+                            <td>Apps complexes, grandes équipes</td>
+                            <td>Projets moyens, PME</td>
+                            <td>Grandes entreprises, DSI</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Offres d'emploi</strong></td>
+                            <td>Très nombreuses <span class="tag-good">↑</span></td>
+                            <td>Modérées</td>
+                            <td>Modérées</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Écosystème</strong></td>
+                            <td>Next.js, Remix, React Native</td>
+                            <td>Nuxt.js, Quasar</td>
+                            <td>Intégré (complet)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </section>
 
-        <!-- 4. ACTUALITÉS ET MISES À JOUR (Fixes et sécurisées pour l'oral) -->
-        <section class="bts-section">
-            <h2 class="section-title">4. Les dernières grandes mises à jour de React</h2>
-            <p class="bts-desc">Voici les changements majeurs récents qui bouleversent notre façon de coder.</p>
-
-            <div class="options-grid">
-                <!-- Actu 1 -->
-                <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
-                    <div class="option-content" style="padding: 20px;">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">🚀 L'arrivée de React 19 et du "React Compiler"</h3>
-                        <span style="display: block; margin-bottom: 10px; font-size: 0.85rem; color: #38bdf8;">Mise à jour majeure</span>
-                        <p style="font-size: 0.9rem; margin-bottom: 15px; color: #cbd5e1; line-height: 1.5;">
-                            <strong>Le changement :</strong> Jusqu'à présent, les développeurs devaient écrire du code complexe pour éviter que le site ne ralentisse (optimisation manuelle). Avec React 19, un nouveau "Compiler" fait ce travail automatiquement en arrière-plan. Le code devient plus propre et les sites beaucoup plus rapides sans effort supplémentaire.
-                        </p>
-                    </div>
-                    <div style="padding: 0 20px 20px 20px;">
-                        <a href="https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024" target="_blank" class="badge" style="text-decoration: none; display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Lire l'annonce officielle</a>
-                    </div>
-                </div>
-
-                <!-- Actu 2 -->
-                <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
-                    <div class="option-content" style="padding: 20px;">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">⚡ Les React Server Components (RSC)</h3>
-                        <span style="display: block; margin-bottom: 10px; font-size: 0.85rem; color: #38bdf8;">Standardisation</span>
-                        <p style="font-size: 0.9rem; margin-bottom: 15px; color: #cbd5e1; line-height: 1.5;">
-                            <strong>Le changement :</strong> Historiquement, React s'exécutait uniquement sur le navigateur du client. Désormais, certains composants peuvent s'exécuter directement sur le serveur. Résultat : on envoie moins de code à l'utilisateur, les sites chargent plus vite sur les téléphones lents, et le référencement Google (SEO) est grandement amélioré.
-                        </p>
-                    </div>
-                    <div style="padding: 0 20px 20px 20px;">
-                        <a href="https://react.dev/reference/rsc/server-components" target="_blank" class="badge" style="text-decoration: none; display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Comprendre les RSC</a>
-                    </div>
-                </div>
-
-                <!-- Actu 3 -->
-                <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
-                    <div class="option-content" style="padding: 20px;">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">📝 Simplification des formulaires avec les "Actions"</h3>
-                        <span style="display: block; margin-bottom: 10px; font-size: 0.85rem; color: #38bdf8;">Nouvelle fonctionnalité</span>
-                        <p style="font-size: 0.9rem; margin-bottom: 15px; color: #cbd5e1; line-height: 1.5;">
-                            <strong>Le changement :</strong> Avant, gérer l'envoi d'un formulaire (comme une inscription) avec React demandait d'écrire beaucoup d'états manuels (chargement en cours, gestion des erreurs, etc.). Les nouvelles "Actions" permettent de lier directement un bouton HTML à une fonction d'envoi de données, simplifiant énormément la vie des développeurs.
-                        </p>
-                    </div>
-                    <div style="padding: 0 20px 20px 20px;">
-                        <a href="https://react.dev/reference/react/useActionState" target="_blank" class="badge" style="text-decoration: none; display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Voir la documentation</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. PRÉVISIONS -->
-        <section class="detail-card conclusion-card" style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.8)); border-left: 4px solid #38bdf8;">
-            <h2 class="detail-title">🔮 5. Prévisions et Avenir de la technologie</h2>
-            <p class="conclusion-text">
-                En analysant ces récentes mises à jour, je prévois que l'avenir du développement web va vers une **automatisation totale des tâches ennuyeuses**. Le développeur de demain n'aura plus besoin d'optimiser manuellement la vitesse de son site : les outils comme le React Compiler le feront pour lui. <br><br>
-                De plus, l'intégration grandissante de l'Intelligence Artificielle dans nos éditeurs de code va nous permettre de générer nos "composants Legos" (comme les boutons ou les menus) quasi instantanément. Notre rôle se concentrera donc davantage sur l'assemblage intelligent et la logique métier de l'entreprise.
-            </p>
-        </section>
-
-        <!-- 6. POURQUOI CE CHOIX -->
-        <section class="school-card section-methodology" style="margin-top: 40px;">
-            <div class="school-logo-wrapper methodology-icon-wrapper" style="background: rgba(34, 197, 94, 0.1); color: #22c55e;">
-                 <span class="methodology-icon">🎯</span>
-            </div>
-            
-            <div class="school-info">
-                <h2>6. Pourquoi ai-je choisi cette veille ? (Bilan)</h2>
+            <div class="card" style="margin-top: 1rem;">
+                <h3>💡 Pourquoi j'ai choisi React plutôt que Vue ou Angular ?</h3>
                 <p>
-                    Ce choix reflète parfaitement mon évolution professionnelle. Au début de mon BTS, je me suis forcé à tout coder "à la main" sans framework. C'était indispensable pour bien comprendre les bases de la programmation. 
-                    <br><br>
-                    Aujourd'hui, j'ai acquis ces bases. Mon objectif pour entrer sur le marché du travail est d'être efficace et d'utiliser les standards de l'industrie. Suivre l'actualité de React me prépare à concevoir les applications web modernes et performantes que les entreprises attendent.
+                    React est le choix le plus demandé sur le marché de l'emploi français. De plus, apprendre React permet d'accéder facilement à <strong>React Native</strong> pour le mobile, et à <strong>Next.js</strong> pour le rendu serveur — deux technologies très présentes en entreprise. C'est donc l'investissement le plus polyvalent pour démarrer une carrière web.
                 </p>
             </div>
         </section>
 
-        <div class="project-footer-action">
-            <a href="index.html" class="btn-back">
-                &larr; Retour à l'accueil
-            </a>
+        <!-- ── 05 ACTUALITÉS ── -->
+        <section id="actus" class="section">
+            <div class="section-label">05 · Actualités</div>
+            <h2>Les grandes mises à jour récentes</h2>
+            <p>Les changements majeurs survenus entre 2024 et 2025, que je suis dans le cadre de ma veille.</p>
+
+            <div class="news-grid">
+
+                <div class="news-card">
+                    <div class="news-date">
+                        <span class="month">Déc.</span>
+                        <span class="year">2024</span>
+                    </div>
+                    <div class="news-body">
+                        <span class="badge-type badge-major">Version majeure</span>
+                        <h3>🚀 Sortie officielle de React 19</h3>
+                        <p>
+                            <strong>Ce qui change :</strong> React 19 introduit le <strong>React Compiler</strong>, un outil qui optimise automatiquement les performances du site. Avant, les développeurs devaient ajouter manuellement des mécanismes pour éviter les ralentissements. Désormais, le compilateur le fait seul. Le code devient plus simple à écrire, et les sites plus rapides sans effort supplémentaire.
+                        </p>
+                        <a class="news-link" href="https://react.dev/blog/2024/12/05/react-19" target="_blank">→ Lire l'annonce officielle</a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-date">
+                        <span class="month">2024</span>
+                        <span class="year">Continu</span>
+                    </div>
+                    <div class="news-body">
+                        <span class="badge-type badge-standard">Standardisation</span>
+                        <h3>⚡ Les React Server Components (RSC) généralisés</h3>
+                        <p>
+                            <strong>Ce qui change :</strong> Historiquement, React s'exécutait uniquement dans le navigateur. Les RSC permettent à certains composants de s'exécuter directement <strong>sur le serveur</strong>. Résultat : moins de code envoyé à l'utilisateur, chargement plus rapide sur mobile, et meilleur référencement Google (SEO). Next.js 14+ les utilise par défaut.
+                        </p>
+                        <a class="news-link" href="https://react.dev/reference/rsc/server-components" target="_blank">→ Comprendre les RSC</a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-date">
+                        <span class="month">2024</span>
+                        <span class="year">React 19</span>
+                    </div>
+                    <div class="news-body">
+                        <span class="badge-type badge-feature">Nouvelle fonctionnalité</span>
+                        <h3>📝 Gestion simplifiée des formulaires avec les "Actions"</h3>
+                        <p>
+                            <strong>Ce qui change :</strong> Avant, gérer un formulaire demandait d'écrire beaucoup de code : indicateur de chargement, gestion des erreurs, retour utilisateur... Les nouvelles "Actions" (et le hook <code>useActionState</code>) permettent de simplifier tout ça en quelques lignes. C'est l'une des améliorations les plus attendues des développeurs.
+                        </p>
+                        <a class="news-link" href="https://react.dev/reference/react/useActionState" target="_blank">→ Voir la documentation</a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-date">
+                        <span class="month">2025</span>
+                        <span class="year">En cours</span>
+                    </div>
+                    <div class="news-body">
+                        <span class="badge-type badge-feature">Tendance 2025</span>
+                        <h3>🤖 Intégration de React avec les interfaces IA</h3>
+                        <p>
+                            <strong>Ce qui change :</strong> Vercel (l'entreprise derrière Next.js) développe le <strong>AI SDK</strong>, une bibliothèque qui permet d'intégrer facilement des fonctionnalités d'IA générative dans des applications React. De plus en plus d'offres d'emploi mentionnent cette compétence en 2025.
+                        </p>
+                        <a class="news-link" href="https://sdk.vercel.ai" target="_blank">→ Voir le Vercel AI SDK</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ── 06 PRÉVISIONS ── -->
+        <section id="previsions" class="section">
+            <div class="section-label">06 · Prévisions</div>
+            <h2>Prévisions et avenir de React</h2>
+            <p>Ce que j'anticipe en analysant les tendances actuelles du marché.</p>
+
+            <div class="forecast-card">
+                <p style="color: var(--text); margin-bottom: 1.4rem; font-size: .95rem;">
+                    D'après mon analyse des mises à jour récentes et des tendances de l'écosystème, voici les évolutions que je prévois pour les prochaines années :
+                </p>
+
+                <div class="forecast-grid">
+                    <div class="forecast-item">
+                        <h4>🤖 Automatisation des tâches répétitives</h4>
+                        <p>Le React Compiler marque le début d'une tendance : les outils feront de plus en plus d'optimisations à notre place. Le développeur se concentrera davantage sur la logique métier que sur la performance technique.</p>
+                    </div>
+                    <div class="forecast-item">
+                        <h4>🌐 Le Full-Stack avec Next.js</h4>
+                        <p>Next.js 15+ continue de fusionner front-end et back-end dans une seule application React. La frontière entre développeur front et full-stack devient de plus en plus floue.</p>
+                    </div>
+                    <div class="forecast-item">
+                        <h4>📱 React Native & applications cross-platform</h4>
+                        <p>Apprendre React ouvre la porte à React Native (mobile iOS/Android). En 2025, les entreprises cherchent de plus en plus des profils capables de toucher à la fois le web et le mobile.</p>
+                    </div>
+                    <div class="forecast-item">
+                        <h4>⚔️ La montée de Svelte et Astro</h4>
+                        <p>Des alternatives comme Svelte et Astro gagnent en popularité pour les sites vitrine et les blogs. React reste dominant sur les applications complexes, mais la concurrence pousse l'écosystème à innover.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 07 BILAN ── -->
+        <section id="bilan" class="section">
+            <div class="section-label">07 · Bilan</div>
+            <h2>Bilan personnel</h2>
+            <p>Où j'en suis concrètement dans mon apprentissage.</p>
+
+            <div class="bilan-card">
+                <div class="bilan-icon">🎯</div>
+                <div class="bilan-body">
+                    <h3>Une veille orientée vers la préparation professionnelle</h3>
+                    <p>
+                        Au début de mon BTS, j'ai volontairement choisi de coder mes projets "à la main", sans framework (comme Loca'Vélo en PHP). Cela m'a permis de construire des bases solides en HTML, CSS, JavaScript et PHP natif — des fondations indispensables avant d'utiliser un framework.
+                    </p>
+                    <p>
+                        <strong>Aujourd'hui, je suis en phase d'apprentissage actif de React.</strong> Je lis la documentation officielle, je suis des tutoriels pratiques, et je crée de petits composants pour comprendre la logique de l'outil. Je n'ai pas encore de projet React en production, mais cette veille me permet d'arriver sur le marché du travail avec le vocabulaire, les concepts et les standards attendus par les entreprises.
+                    </p>
+                    <p>
+                        L'objectif : être opérationnel sur React dès mon premier poste, sans avoir besoin d'un long temps de formation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── BACK ── -->
+        <div class="back-wrap">
+            <a href="index.html" class="btn-back">← Retour à l'accueil</a>
         </div>
 
-    </div>
+    </main>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Youssef Nasef - PORTFOLIO. Tous droits réservés.</p>
-            <p>Développeur web & applications.</p>
-        </div>
-
+    <!-- ── FOOTER ── -->
+    <footer>
+        <p>© 2026 Youssef Nasef — Portfolio BTS SIO</p>
         <div class="footer-links">
-            <div class="socials">
-                <a href="mailto:nasefyoussef@outlook.com" class="footer-link">Contactez-moi (Email)</a>
-                <a href="https://www.linkedin.com/in/youssefnasef/" target="_blank" class="footer-link">LinkedIn</a>
-                <a href="https://github.com/youssna" target="_blank" class="footer-link">GitHub</a>
-            </div>
-            
-            <div class="legal-links">
-                <a href="mentions-legales.html" class="footer-link">Mentions Légales</a>
-            </div>
+            <a href="mailto:nasefyoussef@outlook.com">Email</a>
+            <a href="https://www.linkedin.com/in/youssefnasef/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/youssna" target="_blank">GitHub</a>
+            <a href="mentions-legales.html">Mentions légales</a>
         </div>
     </footer>
 
