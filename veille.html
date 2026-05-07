@@ -10,212 +10,6 @@
     
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/script.js" defer></script>
-
-    <style>
-        /* ===== FLUX RSS SECTION ===== */
-        .rss-section {
-            margin-top: 40px;
-        }
-
-        .rss-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .rss-title-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .rss-live-badge {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(239, 68, 68, 0.12);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: #f87171;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-
-        .rss-live-badge .pulse-dot {
-            width: 7px;
-            height: 7px;
-            background: #ef4444;
-            border-radius: 50%;
-            animation: pulse-anim 1.5s infinite;
-        }
-
-        @keyframes pulse-anim {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.7); }
-        }
-
-        .rss-source-tabs {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .rss-tab {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #94a3b8;
-            font-size: 0.82rem;
-            padding: 5px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .rss-tab:hover,
-        .rss-tab.active {
-            background: rgba(99, 102, 241, 0.15);
-            border-color: rgba(99, 102, 241, 0.4);
-            color: #a5b4fc;
-        }
-
-        .rss-feed-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 16px;
-        }
-
-        .rss-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: 12px;
-            padding: 18px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            transition: border-color 0.2s, transform 0.2s, background 0.2s;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .rss-card:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-            background: rgba(99, 102, 241, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .rss-card-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-        }
-
-        .rss-source-tag {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-
-        .tag-grafikart { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; }
-        .tag-alsacreations { background: rgba(34, 197, 94, 0.12); color: #86efac; }
-        .tag-devfr { background: rgba(251, 146, 60, 0.12); color: #fdba74; }
-
-        .rss-date {
-            font-size: 0.72rem;
-            color: #64748b;
-        }
-
-        .rss-card-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #e2e8f0;
-            line-height: 1.45;
-            margin: 0;
-        }
-
-        .rss-card-excerpt {
-            font-size: 0.82rem;
-            color: #94a3b8;
-            line-height: 1.55;
-            margin: 0;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .rss-card-link {
-            font-size: 0.78rem;
-            color: #6366f1;
-            margin-top: auto;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .rss-card-link svg {
-            width: 12px;
-            height: 12px;
-        }
-
-        /* Loading / Error states */
-        .rss-loading,
-        .rss-error,
-        .rss-empty {
-            grid-column: 1 / -1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 48px 20px;
-            gap: 12px;
-            color: #64748b;
-            text-align: center;
-        }
-
-        .rss-spinner {
-            width: 32px;
-            height: 32px;
-            border: 3px solid rgba(99,102,241,0.15);
-            border-top-color: #6366f1;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        .rss-error-icon { font-size: 2rem; }
-        .rss-error p { margin: 0; font-size: 0.88rem; }
-
-        .rss-refresh-btn {
-            margin-top: 20px;
-            background: none;
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #94a3b8;
-            font-size: 0.8rem;
-            padding: 6px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .rss-refresh-btn:hover {
-            background: rgba(255,255,255,0.05);
-            color: #e2e8f0;
-        }
-    </style>
 </head>
 <body>
 
@@ -235,178 +29,205 @@
 
     <header class="page-header header-veille">
         <h1 class="page-title">Veille Technologique</h1>
-        <p class="page-subtitle">Observation et étude du framework Front-End : React.</p>
+        <p class="page-subtitle">Découverte du framework Front-End React et de son écosystème.</p>
     </header>
 
     <div class="content-wrapper">
 
+        <!-- 1. SUJET -->
         <section class="school-card section-methodology">
             <div class="school-logo-wrapper methodology-icon-wrapper">
-                 <span class="methodology-icon">⚛️</span>
+                <span class="methodology-icon">🌐</span>
             </div>
-            
             <div class="school-info">
-                <h2>1. Mon sujet de veille : React</h2>
+                <h2>1. Mon sujet de veille</h2>
                 <p>
-                    Pour ma veille technologique, je me concentre sur <strong>React</strong>. C'est l'outil numéro un utilisé en entreprise pour créer la partie visible des sites web. Mon but est de comprendre théoriquement comment sont faits les sites modernes et ultra-rapides d'aujourd'hui, afin de me préparer au marché du travail.
+                    J'ai choisi de faire ma veille sur <strong>React</strong>, la bibliothèque JavaScript la plus utilisée en entreprise pour créer des interfaces web modernes. Mon objectif est de comprendre comment fonctionne cet outil, pourquoi il s'est imposé comme standard, et comment il évolue — afin d'être opérationnel dès mon entrée sur le marché du travail.
                 </p>
+                <div class="school-features">
+                    <span class="badge">Développement Front-End</span>
+                    <span class="badge">Single Page Application</span>
+                    <span class="badge">JavaScript</span>
+                </div>
             </div>
         </section>
 
+        <!-- 2. MÉTHODOLOGIE -->
+        <section class="school-card section-methodology">
+            <div class="school-logo-wrapper methodology-icon-wrapper">
+                <span class="methodology-icon">📡</span>
+            </div>
+            <div class="school-info">
+                <h2>2. Ma méthodologie de veille</h2>
+                <p>
+                    Pour rester informé régulièrement sur React, j'utilise plusieurs sources complémentaires :
+                </p>
+                <br>
+                <p>
+                    📖 <strong>Documentation officielle</strong> — Je consulte <a href="https://react.dev/blog" target="_blank" style="color: #38bdf8;">react.dev/blog</a> pour suivre les annonces de nouvelles versions directement à la source.
+                </p>
+                <br>
+                <p>
+                    📰 <strong>Newsletter</strong> — Je suis <em>This Week In React</em>, une newsletter hebdomadaire qui résume les actualités importantes de l'écosystème React.
+                </p>
+                <br>
+                <p>
+                    🎥 <strong>Vidéos</strong> — Je regarde des chaînes YouTube comme <em>Fireship</em> qui expliquent les nouveautés de façon claire et rapide.
+                </p>
+                <br>
+                <p>
+                    📊 <strong>Sondages annuels</strong> — Je consulte le <a href="https://survey.stackoverflow.co/2024" target="_blank" style="color: #38bdf8;">Stack Overflow Developer Survey</a> et le <a href="https://stateofjs.com" target="_blank" style="color: #38bdf8;">State of JS</a> pour avoir une vue d'ensemble sur les tendances du marché.
+                </p>
+                <div class="school-features">
+                    <span class="badge">react.dev</span>
+                    <span class="badge">This Week In React</span>
+                    <span class="badge">State of JS 2024</span>
+                    <span class="badge">Stack Overflow Survey 2024</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CONCEPTS -->
+        <section class="bts-section section-concepts">
+            <h2 class="section-title">3. Comprendre React</h2>
+            <p class="bts-desc">Les concepts de base expliqués simplement.</p>
+
+            <div class="options-grid">
+                <div class="option-card">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" alt="Boîte à outils" class="option-img">
+                    <div class="option-content">
+                        <h3>C'est quoi React ?</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.5; color: #cbd5e1;">
+                            React est une <strong>bibliothèque JavaScript</strong> créée par Meta (Facebook) en 2013. Elle sert à construire des interfaces web. C'est aujourd'hui l'outil le plus utilisé en entreprise pour le développement Front-End, devant Vue.js et Angular (source : State of JS 2024).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" alt="Composants" class="option-img">
+                    <div class="option-content">
+                        <h3>Comment ça fonctionne ?</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.5; color: #cbd5e1;">
+                            React découpe le site en <strong>composants</strong> indépendants : un composant pour le menu, un pour un bouton, un pour une carte produit... Chaque composant est réutilisable et se met à jour <em>automatiquement</em> quand les données changent, sans recharger toute la page.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. COMPARAISON -->
         <section class="bts-section">
-            <h2 class="section-title">2. L'histoire et l'évolution de React</h2>
-            <p class="bts-desc">D'où vient cet outil et comment s'est-il imposé ?</p>
-            
+            <h2 class="section-title">4. Comparaison : PHP sans framework VS React</h2>
+            <p class="bts-desc">Ce que React change concrètement par rapport à du PHP classique côté interface.</p>
+
             <div class="table-responsive">
                 <table class="tech-table">
                     <thead>
                         <tr>
-                            <th>Année</th>
-                            <th>L'événement marquant</th>
-                            <th>L'impact</th>
+                            <th>Critère</th>
+                            <th>PHP sans framework (côté client)</th>
+                            <th>React</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>2013</strong></td>
-                            <td><strong>Création par Facebook (Meta)</strong></td>
-                            <td>Jordan Walke, un ingénieur de Facebook, crée React car le code de leur site devenait trop lourd et lent à charger.</td>
+                            <td><strong>Rechargement de page</strong></td>
+                            <td>À chaque action, la page entière se recharge depuis le serveur. L'écran devient blanc le temps du chargement.</td>
+                            <td><strong>Aucun rechargement.</strong> React met à jour uniquement la partie de la page qui change. L'expérience est fluide et instantanée.</td>
                         </tr>
                         <tr>
-                            <td><strong>2015</strong></td>
-                            <td><strong>Passage en Open-Source</strong></td>
-                            <td>Facebook rend l'outil public et gratuit. Le monde entier commence à l'utiliser pour créer des sites web rapides.</td>
+                            <td><strong>Organisation du code</strong></td>
+                            <td>Le HTML et la logique PHP sont souvent mélangés dans les mêmes fichiers. Sur un gros projet, ça devient difficile à maintenir.</td>
+                            <td>Le code est découpé en <strong>composants réutilisables</strong>. Chaque composant a sa propre logique et son propre affichage, ce qui facilite le travail en équipe.</td>
                         </tr>
                         <tr>
-                            <td><strong>Aujourd'hui</strong></td>
-                            <td><strong>Le standard de l'industrie</strong></td>
-                            <td>React est devenu indispensable. De très grandes entreprises comme Netflix, Airbnb ou Uber l'utilisent pour leurs interfaces.</td>
+                            <td><strong>Mise à jour de l'interface</strong></td>
+                            <td>Pour afficher une nouvelle donnée, il faut réécrire du HTML ou manipuler le DOM manuellement avec JavaScript.</td>
+                            <td>React gère automatiquement la mise à jour via le <strong>Virtual DOM</strong> : il compare l'état avant/après et ne modifie que ce qui a changé.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Réutilisation du code</strong></td>
+                            <td>Un élément (ex: une carte produit) doit souvent être recopié manuellement d'une page à l'autre.</td>
+                            <td>Un composant React se crée une seule fois et s'utilise autant de fois que nécessaire sur tout le projet.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <section class="bts-section section-concepts">
-            <h2 class="section-title">3. Comprendre React simplement</h2>
-            <p class="bts-desc">Les concepts de base sans termes compliqués.</p>
-
-            <div class="options-grid">
-                <div class="option-card">
-                    <div class="option-content">
-                        <h3>C'est quoi un Framework ?</h3>
-                        <p>
-                            C'est une <strong>boîte à outils</strong>. Au lieu de tout coder à partir de zéro, cet outil nous donne des bases solides et des règles pour coder plus vite et éviter les erreurs.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="option-card">
-                    <div class="option-content">
-                        <h3>La méthode des Legos</h3>
-                        <p>
-                            React fonctionne comme des <strong>Legos</strong>. On découpe le site en petits blocs indépendants (un bloc pour le menu, un pour un bouton). Si on change la couleur du bouton, il se met à jour partout sur le site d'un seul coup sans recharger la page.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- 5. ACTUALITÉS -->
         <section class="bts-section">
-            <h2 class="section-title">4. Les dernières actualités de React</h2>
-            <p class="bts-desc">Les informations récentes que j'ai relevées lors de ma veille.</p>
+            <h2 class="section-title">5. Les dernières grandes mises à jour de React</h2>
+            <p class="bts-desc">Les changements majeurs survenus en 2024–2025 que je surveille dans le cadre de ma veille.</p>
 
             <div class="options-grid">
+
                 <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
                     <div class="option-content" style="padding: 20px;">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">L'adoption du React Compiler</h3>
-                        <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
-                            <strong>Mini-résumé :</strong> Un nouvel outil interne gère désormais la vitesse du site automatiquement. Le développeur n'a plus besoin d'écrire du code complexe pour éviter les ralentissements, la machine le fait à sa place.
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">🚀 React 19 — Décembre 2024</h3>
+                        <span style="display: block; margin-bottom: 10px; font-size: 0.85rem; color: #38bdf8;">Version majeure</span>
+                        <p style="font-size: 0.9rem; margin-bottom: 15px; color: #cbd5e1; line-height: 1.5;">
+                            La mise à jour la plus importante depuis des années. Elle introduit le <strong>React Compiler</strong> : un outil qui optimise automatiquement les performances du site. Avant, les développeurs devaient ajouter manuellement du code pour éviter les ralentissements. Désormais, le compilateur le fait seul. Le code est plus simple à écrire et les sites plus rapides.
                         </p>
+                    </div>
+                    <div style="padding: 0 20px 20px 20px;">
+                        <a href="https://react.dev/blog/2024/12/05/react-19" target="_blank" class="badge" style="text-decoration: none; display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Lire l'annonce officielle</a>
                     </div>
                 </div>
 
                 <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
                     <div class="option-content" style="padding: 20px;">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">La norme des "Server Components"</h3>
-                        <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
-                            <strong>Mini-résumé :</strong> De plus en plus, le code React ne s'exécute plus sur le téléphone de l'utilisateur, mais directement sur le serveur. Cela permet d'afficher les pages beaucoup plus rapidement, même avec une mauvaise connexion internet.
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">⚡ Les React Server Components — 2024</h3>
+                        <span style="display: block; margin-bottom: 10px; font-size: 0.85rem; color: #38bdf8;">Standardisation</span>
+                        <p style="font-size: 0.9rem; margin-bottom: 15px; color: #cbd5e1; line-height: 1.5;">
+                            Historiquement, React s'exécutait uniquement dans le navigateur. Les <strong>Server Components</strong> permettent à certains composants de s'exécuter directement sur le serveur. Résultat : moins de code envoyé à l'utilisateur, chargement plus rapide, et meilleur référencement Google (SEO). C'est désormais le standard dans Next.js 14+.
                         </p>
+                    </div>
+                    <div style="padding: 0 20px 20px 20px;">
+                        <a href="https://react.dev/reference/rsc/server-components" target="_blank" class="badge" style="text-decoration: none; display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Comprendre les RSC</a>
                     </div>
                 </div>
 
                 <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
                     <div class="option-content" style="padding: 20px;">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">L'IA qui génère des interfaces</h3>
-                        <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
-                            <strong>Mini-résumé :</strong> De nouveaux outils basés sur l'intelligence artificielle permettent aujourd'hui de décrire un bouton ou un menu avec des mots, et l'outil génère instantanément le code React correspondant à copier-coller.
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">📝 Les "Actions" pour les formulaires — React 19</h3>
+                        <span style="display: block; margin-bottom: 10px; font-size: 0.85rem; color: #38bdf8;">Nouvelle fonctionnalité</span>
+                        <p style="font-size: 0.9rem; margin-bottom: 15px; color: #cbd5e1; line-height: 1.5;">
+                            Avant, gérer un formulaire en React demandait beaucoup de code : indicateur de chargement, gestion des erreurs, retour utilisateur... Les nouvelles <strong>Actions</strong> (et le hook <code>useActionState</code>) simplifient tout ça en quelques lignes. C'est l'une des améliorations les plus attendues par les développeurs.
                         </p>
                     </div>
+                    <div style="padding: 0 20px 20px 20px;">
+                        <a href="https://react.dev/reference/react/useActionState" target="_blank" class="badge" style="text-decoration: none; display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Voir la documentation</a>
+                    </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- ===================== NOUVEAU : FLUX RSS ===================== -->
-        <section class="bts-section rss-section">
-            <h2 class="section-title">
-                <span>5. Flux RSS — Actualités en direct</span>
-            </h2>
-            <p class="bts-desc">Les derniers articles publiés par des sources francophones spécialisées en développement web.</p>
-
-            <div class="rss-header">
-                <div class="rss-title-group">
-                    <div class="rss-live-badge">
-                        <span class="pulse-dot"></span>
-                        En direct
-                    </div>
-                </div>
-                <div class="rss-source-tabs">
-                    <button class="rss-tab active" data-source="grafikart">Grafikart</button>
-                    <button class="rss-tab" data-source="alsacreations">Alsacreations</button>
-                    <button class="rss-tab" data-source="devfr">Journal du Net</button>
-                </div>
-            </div>
-
-            <div class="rss-feed-container" id="rss-feed">
-                <div class="rss-loading">
-                    <div class="rss-spinner"></div>
-                    <span>Chargement du flux RSS…</span>
-                </div>
-            </div>
-
-            <div style="display: flex; justify-content: center;">
-                <button class="rss-refresh-btn" id="rss-refresh-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
-                        <polyline points="23 4 23 10 17 10"></polyline>
-                        <polyline points="1 20 1 14 7 14"></polyline>
-                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                    </svg>
-                    Actualiser
-                </button>
-            </div>
-        </section>
-        <!-- ===================== FIN FLUX RSS ===================== -->
-
-        <section class="detail-card conclusion-card">
-            <h2 class="detail-title">🔮 6. Prévisions et Avenir</h2>
+        <!-- 6. PRÉVISIONS -->
+        <section class="detail-card conclusion-card" style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.8)); border-left: 4px solid #38bdf8;">
+            <h2 class="detail-title">🔮 6. Prévisions et avenir de React</h2>
             <p class="conclusion-text">
-                En observant ces actualités, je prévois que le code React va devenir de plus en plus simple à écrire. Les tâches répétitives et l'optimisation de la vitesse seront gérées par la machine. Avec l'aide grandissante de l'Intelligence Artificielle pour générer le visuel, le rôle du développeur de demain sera surtout d'assembler ces "blocs de Lego" et de vérifier la logique de l'application, plutôt que de tout taper à la main.
+                D'après les dernières mises à jour et les tendances du marché, je prévois plusieurs évolutions pour les prochaines années.<br><br>
+                Le <strong>React Compiler</strong> marque le début d'une automatisation croissante : les outils se chargeront de plus en plus des optimisations à la place du développeur. Le code sera plus simple à écrire, et le développeur pourra se concentrer davantage sur la logique métier.<br><br>
+                La frontière entre développeur front-end et full-stack va continuer de s'effacer avec <strong>Next.js</strong>, qui permet de gérer à la fois l'interface et le serveur dans une seule application React.<br><br>
+                Enfin, des alternatives comme <strong>Svelte</strong> ou <strong>Astro</strong> gagnent du terrain pour les sites vitrines. React reste dominant sur les applications complexes, mais la concurrence pousse l'écosystème à innover constamment.
             </p>
         </section>
 
+        <!-- 7. BILAN -->
         <section class="school-card section-methodology" style="margin-top: 40px;">
             <div class="school-logo-wrapper methodology-icon-wrapper" style="background: rgba(34, 197, 94, 0.1); color: #22c55e;">
-                 <span class="methodology-icon">🎯</span>
+                <span class="methodology-icon">🎯</span>
             </div>
-            
             <div class="school-info">
-                <h2>7. Bilan : Pourquoi ce choix et où j'en suis ?</h2>
+                <h2>7. Bilan : Où en suis-je ?</h2>
                 <p>
-                    Au début de mon BTS, j'ai voulu coder mes projets (comme Loca'Vélo) entièrement en PHP natif. C'était un choix volontaire pour comprendre les bases de la programmation web de A à Z.
+                    Au début de mon BTS, j'ai volontairement choisi de coder mes projets sans framework, comme Loca'Vélo en PHP pur. C'était indispensable pour acquérir des bases solides en HTML, CSS, JavaScript et PHP natif.
                     <br><br>
-                    Aujourd'hui, pour ma veille technologique, j'ai choisi de m'intéresser à React pour anticiper mon avenir professionnel. Pour être totalement transparent, <strong>je n'ai jamais utilisé React</strong>, pas même pour de petits tests. 
+                    <strong>Je n'ai pas encore utilisé React sur un projet en production.</strong> Actuellement, je suis en phase d'apprentissage : je lis la documentation officielle, je suis des tutoriels, et je crée de petits composants pour comprendre la logique de l'outil.
                     <br><br>
-                    Mon apprentissage est pour le moment 100% théorique. Je lis les articles et je surveille l'évolution de l'outil pour connaître son vocabulaire, son histoire et comprendre sa logique globale. Mon but est d'être prêt théoriquement avant de me lancer dans la pratique sur de futurs projets en entreprise.
+                    Cette veille me permet d'anticiper les attentes des entreprises : arriver sur le marché du travail en connaissant déjà le vocabulaire, les concepts et les derniers standards de React.
                 </p>
             </div>
         </section>
@@ -419,172 +240,22 @@
 
     </div>
 
-       <footer class="site-footer">
+    <footer class="site-footer">
         <div class="footer-content">
             <p>&copy; 2026 Youssef Nasef - PORTFOLIO. Tous droits réservés.</p>
             <p>Développeur web & applications.</p>
         </div>
-
         <div class="footer-links">
             <div class="socials">
                 <a href="mailto:nasefyoussef@outlook.com" class="footer-link">Contactez-moi (Email)</a>
                 <a href="https://www.linkedin.com/in/youssefnasef/" target="_blank" class="footer-link">LinkedIn</a>
                 <a href="https://github.com/youssna" target="_blank" class="footer-link">GitHub</a>
             </div>
-            
             <div class="legal-links">
                 <a href="mentions-legales.html" class="footer-link">Mentions Légales</a>
             </div>
         </div>
     </footer>
-
-    <!-- ===== SCRIPT FLUX RSS ===== -->
-    <script>
-        // -------------------------------------------------------
-        //  Configuration des sources RSS (via rss2json.com)
-        // -------------------------------------------------------
-        const RSS_API = 'https://api.rss2json.com/v1/api.json?rss_url=';
-
-        const SOURCES = {
-            grafikart: {
-                url: 'https://grafikart.fr/feed.xml',
-                label: 'Grafikart',
-                tagClass: 'tag-grafikart'
-            },
-            alsacreations: {
-                url: 'https://www.alsacreations.com/rss/actuali.xml',
-                label: 'Alsacreations',
-                tagClass: 'tag-alsacreations'
-            },
-            devfr: {
-                url: 'https://www.journaldunet.com/rss/',
-                label: 'Journal du Net',
-                tagClass: 'tag-devfr'
-            }
-        };
-
-        let currentSource = 'grafikart';
-
-        // -------------------------------------------------------
-        //  Utilitaires
-        // -------------------------------------------------------
-        function formatDate(dateStr) {
-            if (!dateStr) return '';
-            const d = new Date(dateStr);
-            if (isNaN(d)) return '';
-            return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
-        }
-
-        function stripHtml(html) {
-            if (!html) return '';
-            const tmp = document.createElement('div');
-            tmp.innerHTML = html;
-            return tmp.textContent || tmp.innerText || '';
-        }
-
-        function truncate(str, max = 120) {
-            if (!str) return '';
-            str = str.trim();
-            return str.length > max ? str.slice(0, max).trimEnd() + '…' : str;
-        }
-
-        // -------------------------------------------------------
-        //  Rendu des cartes
-        // -------------------------------------------------------
-        function renderCards(items, sourceKey) {
-            const src = SOURCES[sourceKey];
-            const container = document.getElementById('rss-feed');
-
-            if (!items || items.length === 0) {
-                container.innerHTML = `
-                    <div class="rss-empty">
-                        <span class="rss-error-icon">📭</span>
-                        <p>Aucun article trouvé pour cette source.</p>
-                    </div>`;
-                return;
-            }
-
-            container.innerHTML = items.slice(0, 6).map(item => {
-                const title   = item.title || 'Sans titre';
-                const excerpt = truncate(stripHtml(item.description || item.content || ''), 130);
-                const date    = formatDate(item.pubDate);
-                const link    = item.link || '#';
-
-                return `
-                <a class="rss-card" href="${link}" target="_blank" rel="noopener noreferrer">
-                    <div class="rss-card-meta">
-                        <span class="rss-source-tag ${src.tagClass}">${src.label}</span>
-                        ${date ? `<span class="rss-date">${date}</span>` : ''}
-                    </div>
-                    <p class="rss-card-title">${title}</p>
-                    ${excerpt ? `<p class="rss-card-excerpt">${excerpt}</p>` : ''}
-                    <span class="rss-card-link">
-                        Lire l'article
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </span>
-                </a>`;
-            }).join('');
-        }
-
-        // -------------------------------------------------------
-        //  Chargement du flux
-        // -------------------------------------------------------
-        async function loadFeed(sourceKey) {
-            const container = document.getElementById('rss-feed');
-            container.innerHTML = `
-                <div class="rss-loading">
-                    <div class="rss-spinner"></div>
-                    <span>Chargement du flux RSS…</span>
-                </div>`;
-
-            const src = SOURCES[sourceKey];
-            const apiUrl = RSS_API + encodeURIComponent(src.url) + '&count=6&api_key=';
-
-            try {
-                const res = await fetch(apiUrl);
-                if (!res.ok) throw new Error('Réponse HTTP ' + res.status);
-                const data = await res.json();
-
-                if (data.status !== 'ok' || !data.items) throw new Error('Flux invalide');
-                renderCards(data.items, sourceKey);
-
-            } catch (err) {
-                container.innerHTML = `
-                    <div class="rss-error">
-                        <span class="rss-error-icon">⚠️</span>
-                        <p>Impossible de charger le flux RSS.<br>
-                           <small style="color:#475569">La source est peut-être inaccessible ou bloquée par CORS.</small></p>
-                        <p style="font-size:0.78rem; color:#475569">Vous pouvez consulter directement :
-                           <a href="${src.url}" target="_blank" rel="noopener" style="color:#6366f1">${src.label}</a>
-                        </p>
-                    </div>`;
-                console.warn('Erreur RSS :', err);
-            }
-        }
-
-        // -------------------------------------------------------
-        //  Onglets sources
-        // -------------------------------------------------------
-        document.querySelectorAll('.rss-tab').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.rss-tab').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentSource = btn.dataset.source;
-                loadFeed(currentSource);
-            });
-        });
-
-        // Bouton actualiser
-        document.getElementById('rss-refresh-btn').addEventListener('click', () => {
-            loadFeed(currentSource);
-        });
-
-        // Chargement initial
-        loadFeed(currentSource);
-    </script>
 
 </body>
 </html>
