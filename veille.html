@@ -99,7 +99,7 @@
                     <div class="option-content">
                         <h3>La méthode des Legos</h3>
                         <p>
-                            React fonctionne comme des <strong>Legos</strong>. On découpe le site en petits blocs indépendants (un bloc pour le menu, un pour un bouton). Si on change la couleur du bouton, il se met à jour partout sur le site d'un seul coup.
+                            React fonctionne comme des <strong>Legos</strong>. On découpe le site en petits blocs indépendants (un bloc pour le menu, un pour un bouton). Si on change la couleur du bouton, il se met à jour partout sur le site d'un seul coup sans recharger la page.
                         </p>
                     </div>
                 </div>
@@ -107,47 +107,43 @@
         </section>
 
         <section class="bts-section">
-            <h2 class="section-title">4. Comparaison : React VS PHP sans framework</h2>
-            <p class="bts-desc">La différence avec la manière dont je codais mes premiers projets.</p>
-            
-            <div class="table-responsive">
-                <table class="tech-table">
-                    <thead>
-                        <tr>
-                            <th>Critère</th>
-                            <th>Un site codé en PHP Classique</th>
-                            <th>Un site avec React</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Le chargement</strong></td>
-                            <td>À chaque fois qu'on clique sur un lien, l'écran devient blanc un instant et la page entière se recharge.</td>
-                            <td><strong>Instantané.</strong> La page ne se recharge jamais. On remplace juste le petit bout d'écran qui a changé.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Organisation du code</strong></td>
-                            <td>Le HTML et le PHP sont souvent mélangés dans de longs fichiers, ce qui devient dur à relire sur de gros projets.</td>
-                            <td>Tout est rangé dans de petits blocs (composants). C'est très facile à relire et parfait pour travailler en équipe.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+            <h2 class="section-title">4. Les dernières actualités de React</h2>
+            <p class="bts-desc">Les informations récentes que j'ai relevées lors de ma veille.</p>
 
-        <section class="bts-section section-rss">
-            <h2 class="section-title">5. Comment je reste informé (Flux RSS)</h2>
-            <p class="bts-desc">J'ai intégré ci-dessous un flux automatisé qui récupère les dernières actualités françaises sur React pour suivre ses mises à jour au quotidien.</p>
+            <div class="options-grid">
+                <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
+                    <div class="option-content" style="padding: 20px;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">L'adoption du React Compiler</h3>
+                        <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
+                            <strong>Mini-résumé :</strong> Un nouvel outil interne gère désormais la vitesse du site automatiquement. Le développeur n'a plus besoin d'écrire du code complexe pour éviter les ralentissements, la machine le fait à sa place.
+                        </p>
+                    </div>
+                </div>
 
-            <div id="rss-feed-container" class="options-grid">
-                <p>📡 Chargement des actualités en cours...</p>
+                <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
+                    <div class="option-content" style="padding: 20px;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">La norme des "Server Components"</h3>
+                        <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
+                            <strong>Mini-résumé :</strong> De plus en plus, le code React ne s'exécute plus sur le téléphone de l'utilisateur, mais directement sur le serveur. Cela permet d'afficher les pages beaucoup plus rapidement, même avec une mauvaise connexion internet.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
+                    <div class="option-content" style="padding: 20px;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">L'IA qui génère des interfaces</h3>
+                        <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
+                            <strong>Mini-résumé :</strong> De nouveaux outils basés sur l'intelligence artificielle permettent aujourd'hui de décrire un bouton ou un menu avec des mots, et l'outil génère instantanément le code React correspondant à copier-coller.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="detail-card conclusion-card">
-            <h2 class="detail-title">🔮 6. Prévisions et Avenir</h2>
+            <h2 class="detail-title">🔮 5. Prévisions et Avenir</h2>
             <p class="conclusion-text">
-                En observant les tendances actuelles, je prévois que le code React va devenir de plus en plus simple à écrire. L'outil commence déjà à s'occuper seul des problèmes de vitesse (avec la récente mise à jour React 19). De plus, l'Intelligence Artificielle va de plus en plus nous aider à générer ces "blocs de Lego" automatiquement. Le rôle du développeur à l'avenir sera surtout de bien les assembler et de vérifier la logique.
+                En observant ces actualités, je prévois que le code React va devenir de plus en plus simple à écrire. Les tâches répétitives et l'optimisation de la vitesse seront gérées par la machine. Avec l'aide grandissante de l'Intelligence Artificielle pour générer le visuel, le rôle du développeur de demain sera surtout d'assembler ces "blocs de Lego" et de vérifier la logique de l'application, plutôt que de tout taper à la main.
             </p>
         </section>
 
@@ -157,11 +153,11 @@
             </div>
             
             <div class="school-info">
-                <h2>7. Bilan : Pourquoi ce choix et où j'en suis ?</h2>
+                <h2>6. Bilan : Pourquoi ce choix et où j'en suis ?</h2>
                 <p>
-                    Au début de mon BTS, j'ai voulu coder mes projets (comme Loca'Vélo) entièrement en PHP classique. C'était un choix volontaire pour comprendre les bases de la programmation web de A à Z.
+                    Au début de mon BTS, j'ai voulu coder mes projets (comme Loca'Vélo) entièrement en PHP natif. C'était un choix volontaire pour comprendre les bases de la programmation web de A à Z.
                     <br><br>
-                    Aujourd'hui, pour ma veille technologique, j'ai choisi de m'intéresser à React pour anticiper mon avenir professionnel. Pour être totalement transparent, <strong>je n'ai jamais utilisé React</strong>, pas même pour des petits tests. 
+                    Aujourd'hui, pour ma veille technologique, j'ai choisi de m'intéresser à React pour anticiper mon avenir professionnel. Pour être totalement transparent, <strong>je n'ai jamais utilisé React</strong>, pas même pour de petits tests. 
                     <br><br>
                     Mon apprentissage est pour le moment 100% théorique. Je lis les articles et je surveille l'évolution de l'outil pour connaître son vocabulaire, son histoire et comprendre sa logique globale. Mon but est d'être prêt théoriquement avant de me lancer dans la pratique sur de futurs projets en entreprise.
                 </p>
@@ -183,49 +179,5 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const rssContainer = document.getElementById('rss-feed-container');
-            
-            if (rssContainer) {
-                // Recherche "React.js" sur Google Actualités France
-                const rssUrl = 'https://news.google.com/rss/search?q=React.js+developpement&hl=fr&gl=FR&ceid=FR:fr';
-                const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
-
-                fetch(apiUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        if(data.status !== "ok") {
-                            throw new Error("Erreur");
-                        }
-                        rssContainer.innerHTML = ''; 
-
-                        // On prend les 3 premiers articles
-                        const articles = data.items.slice(0, 3);
-
-                        articles.forEach(item => {
-                            const date = new Date(item.pubDate).toLocaleDateString('fr-FR');
-                            let titre = item.title.split(' - ')[0]; // Enlève le nom du site à la fin du titre
-                            
-                            // On crée la carte avec tes propres classes CSS (option-card)
-                            const cardHtml = `
-                                <div class="option-card">
-                                    <div class="option-content">
-                                        <h3>${titre}</h3>
-                                        <p>🗓️ ${date}</p>
-                                        <br>
-                                        <a href="${item.link}" target="_blank" class="badge">Lire l'article</a>
-                                    </div>
-                                </div>
-                            `;
-                            rssContainer.innerHTML += cardHtml;
-                        });
-                    })
-                    .catch(error => {
-                        rssContainer.innerHTML = '<p>Erreur lors du chargement des actualités React.</p>';
-                    });
-            }
-        });
-    </script>
 </body>
 </html>
