@@ -42,27 +42,27 @@
             <div class="school-info">
                 <h2>1. Mon sujet de veille : React</h2>
                 <p>
-                    React est une bibliothèque créée par Facebook pour construire des interfaces utilisateur modernes. C'est ce qu'on appelle un <strong>Framework Front-End</strong> : une structure de travail prête à l'emploi qui fournit des règles et des outils pour optimiser le développement. Au lieu de coder chaque page intégralement, on utilise des composants (des blocs réutilisables) que l'on assemble pour créer des sites fluides, rapides et sans rechargement de page.
+                    React est une bibliothèque créée par Facebook pour construire des interfaces utilisateur modernes. C'est ce qu'on appelle un <strong>Framework Front-End</strong> : c'est-à-dire une structure de travail prête à l'emploi qui nous donne des règles et des outils pour coder beaucoup plus vite. Au lieu de tout réécrire à la main, on utilise des composants (des blocs) que l'on assemble pour créer des sites fluides et rapides.
                 </p>
             </div>
         </section>
 
         <section class="bts-section">
-            <h2 class="section-title">2. Histoire et Fonctionnement</h2>
+            <h2 class="section-title">2. Histoire et Méthode</h2>
             <p class="bts-desc">Origine de l'outil et organisation du code.</p>
             
             <div class="options-grid">
                 <div class="option-card">
                     <div class="option-content">
                         <h3>L'évolution</h3>
-                        <p>Créé en 2013 par Meta (Facebook), React est devenu le standard du marché. Il est aujourd'hui utilisé par les plus grandes entreprises comme Netflix, Airbnb ou Uber pour sa capacité à gérer énormément de données de manière performante.</p>
+                        <p>Créé en 2013 par Meta (Facebook), React est devenu le standard du marché. Il est aujourd'hui utilisé par les plus grandes entreprises comme Netflix, Airbnb ou Uber pour sa capacité à gérer énormément de données sans ralentir le site.</p>
                     </div>
                 </div>
 
                 <div class="option-card">
                     <div class="option-content">
-                        <h3>L'architecture par composants</h3>
-                        <p>Au lieu de coder une page web d'un seul bloc, on la découpe en morceaux indépendants (un menu, un bouton, un formulaire). Cette modularité permet de réutiliser ces éléments sur différentes parties du projet sans avoir à réécrire le code.</p>
+                        <h3>L'architecture par blocs</h3>
+                        <p>Au lieu de coder une page web d'un seul bloc, on la découpe en morceaux indépendants et réutilisables (un menu, un bouton, une barre de recherche). On peut ensuite réutiliser ces morceaux sur d'autres pages du site sans effort.</p>
                     </div>
                 </div>
             </div>
@@ -70,17 +70,43 @@
 
         <section class="bts-section">
             <h2 class="section-title">3. Actualités du Web (Flux en Français)</h2>
-            <p class="bts-desc">Dernières informations technologiques récupérées en temps réel via les actualités françaises.</p>
+            <p class="bts-desc">Dernières informations et tendances récupérées automatiquement depuis les actualités technologiques françaises.</p>
 
             <div id="rss-feed-container" class="options-grid">
                 <p style="color: #38bdf8;">Recherche des actualités en français...</p>
             </div>
         </section>
 
+        <section class="bts-section">
+            <h2 class="section-title">4. Sources consultées</h2>
+            <p class="bts-desc">Blogs et ressources pour rester à jour sur les technologies Front-End.</p>
+
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-content">
+                        <h3>Blog officiel (React.dev)</h3>
+                        <p>La source de référence pour les annonces de versions et les correctifs techniques.</p>
+                    </div>
+                </div>
+                <div class="option-card">
+                    <div class="option-content">
+                        <h3>Journal du Net / ZDNet</h3>
+                        <p>Pour suivre l'actualité des frameworks et leur impact sur le marché des entreprises françaises.</p>
+                    </div>
+                </div>
+                <div class="option-card">
+                    <div class="option-content">
+                        <h3>Dev.to / YouTube</h3>
+                        <p>Pour observer les retours d'expérience et les tutoriels des professionnels du secteur.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="detail-card conclusion-card">
-            <h2 class="detail-title">4. Prévisions et Avenir</h2>
+            <h2 class="detail-title">5. Prévisions et Avenir</h2>
             <p class="conclusion-text">
-                D'après mes recherches, le développement web s'oriente vers une automatisation accrue. L'Intelligence Artificielle va s'intégrer directement dans les outils comme React pour assister le développeur dans la rédaction du code. L'objectif futur est de réduire les erreurs techniques et de permettre aux développeurs de se concentrer sur la conception de fonctionnalités à forte valeur ajoutée.
+                D'après mes recherches, le développement web va vers une simplification totale. L'Intelligence Artificielle va s'intégrer directement dans les frameworks comme React pour aider le développeur à écrire du code sans erreurs. L'objectif est de passer moins de temps sur la technique et plus de temps sur la création de fonctionnalités utiles pour l'utilisateur.
             </p>
         </section>
 
@@ -116,6 +142,7 @@
             const rssContainer = document.getElementById('rss-feed-container');
             
             if (rssContainer) {
+                // Requête Google News FR pour React + Développement Web
                 const rssUrl = 'https://news.google.com/rss/search?q=React+JS+développement+web&hl=fr&gl=FR&ceid=FR:fr';
                 const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
 
@@ -129,14 +156,14 @@
 
                         articles.forEach(item => {
                             const date = new Date(item.pubDate).toLocaleDateString('fr-FR');
-                            let titre = item.title.split(' - ')[0];
+                            let titre = item.title.split(' - ')[0]; // Nettoyage titre source
                             
                             const cardHtml = `
                                 <div class="option-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
                                     <div class="option-content" style="padding: 20px;">
                                         <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #f8fafc;">${titre}</h3>
                                         <p style="font-size: 0.85rem; color: #38bdf8; margin-bottom: 10px;">Date : ${date}</p>
-                                        <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; margin-bottom: 15px;">Actualité récente concernant l'évolution des frameworks et du développement web.</p>
+                                        <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; margin-bottom: 15px;">Actualité technologique en français sur l'écosystème web et les frameworks.</p>
                                     </div>
                                     <div style="padding: 0 20px 20px 20px;">
                                         <a href="${item.link}" target="_blank" class="badge" style="text-decoration: none; display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem;">Lire l'article</a>
